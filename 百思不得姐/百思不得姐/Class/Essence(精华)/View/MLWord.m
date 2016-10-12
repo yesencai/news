@@ -68,7 +68,19 @@
             _bigPicture = picureH > MLPictureMaxHeight;
             picureH = picureH > MLPictureMaxHeight ? MLPictureNormalHeight : picureH;
             _picureFrame = CGRectMake(10, textRect.size.height + 80, picureW, picureH);
-            _cellHeight += picureH;
+            _cellHeight += picureH + 5;
+        }
+        if (self.type == MLTopicTypeVioce) {
+            CGFloat vioceW = maxSize.width;
+            CGFloat vioceH = vioceW * self.height / self.width;
+            _voiceFrame = CGRectMake(10, textRect.size.height + 80, vioceW, vioceH);
+            _cellHeight += vioceH + 5;
+        }
+        if (self.type == MLTopicTypeVedio) {
+            CGFloat vedioW = maxSize.width;
+            CGFloat vedioH = vedioW * self.height / self.width;
+            _vedioFrame = CGRectMake(10, textRect.size.height + 80, vedioW, vedioH);
+            _cellHeight += vedioH + 5;
         }
     }
     return _cellHeight;

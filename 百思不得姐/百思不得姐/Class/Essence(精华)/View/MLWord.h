@@ -40,12 +40,24 @@
 @property (nonatomic, copy) NSString *big_image;
 /** 段子类型 */
 @property (nonatomic, assign) MLTopicType type;
+/** 播放次数 */
+@property (nonatomic, assign) NSInteger playcount;
+/** 声音播放时长 */
+@property (nonatomic, assign) NSInteger voicetime;
+/** 视频播放时长 */
+@property (nonatomic, assign) NSInteger vodiotime;
+
 
 #pragma mark - 额外属性
 /** cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
 /** 图片的frame */
-@property (nonatomic, assign) CGRect picureFrame;
+@property (nonatomic, assign,readonly) CGRect picureFrame;
+/** 声音的frame */
+@property (nonatomic, assign,readonly) CGRect voiceFrame;
+/** 视频的frame */
+@property (nonatomic, assign,readonly) CGRect vedioFrame;
+
 /** 是否是大图 */
 @property (nonatomic, assign,getter=isBigPicture) BOOL bigPicture;
 

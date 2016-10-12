@@ -124,9 +124,9 @@ static NSString *const MLWordCellId = @"topic";
     NSMutableDictionary *parameters = [NSMutableDictionary dictionary];
     parameters[@"a"] = @"list";
     parameters[@"c"] = @"data";
-    parameters[@"tpye"] = @(self.type);
+    parameters[@"type"] = @(self.type);
     parameters[@"page"] = @(self.page);
-    parameters[@"maxTime"] = self.maxtime;
+    parameters[@"maxtime"] = self.maxtime;
     self.parameters = parameters;
     //获取帖子数据
     [JYHttpTool getPath:ml_word_url parameters:parameters success:^(NSDictionary *responseObject) {

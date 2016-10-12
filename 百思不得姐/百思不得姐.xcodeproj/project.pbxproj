@@ -55,6 +55,10 @@
 		FCA303931DAB2D66001F67CD /* MLSendPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA303911DAB2D66001F67CD /* MLSendPostViewController.m */; };
 		FCA303941DAB2D66001F67CD /* MLSendPostViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA303921DAB2D66001F67CD /* MLSendPostViewController.xib */; };
 		FCA4C3591D9B6035008A9EDC /* NSDate+MLCompare.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA4C3581D9B6035008A9EDC /* NSDate+MLCompare.m */; };
+		FCC56D621DAE163600758EB2 /* MLVoiceView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC56D611DAE163600758EB2 /* MLVoiceView.m */; };
+		FCC56D641DAE164400758EB2 /* MLVoiceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC56D631DAE164400758EB2 /* MLVoiceView.xib */; };
+		FCC56D671DAE269800758EB2 /* MLVedioView.m in Sources */ = {isa = PBXBuildFile; fileRef = FCC56D661DAE269800758EB2 /* MLVedioView.m */; };
+		FCC56D691DAE26AD00758EB2 /* MLVedioView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCC56D681DAE26AD00758EB2 /* MLVedioView.xib */; };
 		FCF2BD8B1D99167400C66F67 /* BaseDAO.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD681D99167400C66F67 /* BaseDAO.m */; };
 		FCF2BD8C1D99167400C66F67 /* BaseDataModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD6C1D99167400C66F67 /* BaseDataModel.m */; };
 		FCF2BD8D1D99167400C66F67 /* DAOManager.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD6F1D99167400C66F67 /* DAOManager.m */; };
@@ -189,6 +193,12 @@
 		FCA4C3571D9B6035008A9EDC /* NSDate+MLCompare.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDate+MLCompare.h"; sourceTree = "<group>"; };
 		FCA4C3581D9B6035008A9EDC /* NSDate+MLCompare.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDate+MLCompare.m"; sourceTree = "<group>"; };
 		FCABF8CCC49F0412C882421D /* libPods-百思不得姐.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-百思不得姐.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FCC56D601DAE163600758EB2 /* MLVoiceView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVoiceView.h; sourceTree = "<group>"; };
+		FCC56D611DAE163600758EB2 /* MLVoiceView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVoiceView.m; sourceTree = "<group>"; };
+		FCC56D631DAE164400758EB2 /* MLVoiceView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLVoiceView.xib; sourceTree = "<group>"; };
+		FCC56D651DAE269800758EB2 /* MLVedioView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLVedioView.h; sourceTree = "<group>"; };
+		FCC56D661DAE269800758EB2 /* MLVedioView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLVedioView.m; sourceTree = "<group>"; };
+		FCC56D681DAE26AD00758EB2 /* MLVedioView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLVedioView.xib; sourceTree = "<group>"; };
 		FCF2BD671D99167400C66F67 /* BaseDAO.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDAO.h; sourceTree = "<group>"; };
 		FCF2BD681D99167400C66F67 /* BaseDAO.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BaseDAO.m; sourceTree = "<group>"; };
 		FCF2BD691D99167400C66F67 /* BaseDAOProtocol.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseDAOProtocol.h; sourceTree = "<group>"; };
@@ -398,6 +408,8 @@
 		FC86097C1D8E658A006157DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC3E46211DA9DC1F000C8A68 /* MLProgressView.h */,
+				FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */,
 				FC86097D1D8E658A006157DD /* DDRemTagCell.h */,
 				FC86097E1D8E658A006157DD /* DDRemTagCell.m */,
 				FCF2BD9B1D99213100C66F67 /* MLWord.h */,
@@ -408,8 +420,12 @@
 				FC25F89C1DA8979600ADA790 /* MLPictureView.h */,
 				FC25F89D1DA8979600ADA790 /* MLPictureView.m */,
 				FC25F8A11DA89B2300ADA790 /* MLPictureView.xib */,
-				FC3E46211DA9DC1F000C8A68 /* MLProgressView.h */,
-				FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */,
+				FCC56D601DAE163600758EB2 /* MLVoiceView.h */,
+				FCC56D611DAE163600758EB2 /* MLVoiceView.m */,
+				FCC56D631DAE164400758EB2 /* MLVoiceView.xib */,
+				FCC56D651DAE269800758EB2 /* MLVedioView.h */,
+				FCC56D661DAE269800758EB2 /* MLVedioView.m */,
+				FCC56D681DAE26AD00758EB2 /* MLVedioView.xib */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -918,10 +934,12 @@
 			files = (
 				FC25F8A21DA89B2300ADA790 /* MLPictureView.xib in Resources */,
 				FCA3037F1DAA14BA001F67CD /* MLLargerImageController.xib in Resources */,
+				FCC56D641DAE164400758EB2 /* MLVoiceView.xib in Resources */,
 				FC8609D01D8E658A006157DD /* DDFriendTrendsViewController.xib in Resources */,
 				FC8609451D8E40F8006157DD /* LaunchScreen.storyboard in Resources */,
 				FCA303941DAB2D66001F67CD /* MLSendPostViewController.xib in Resources */,
 				FCF2BDA21D9922A700C66F67 /* MLWordCell.xib in Resources */,
+				FCC56D691DAE26AD00758EB2 /* MLVedioView.xib in Resources */,
 				FC8609421D8E40F8006157DD /* Assets.xcassets in Resources */,
 				FC8609E51D8E658A006157DD /* DFDViewController.xib in Resources */,
 				FC8609EF1D8E713A006157DD /* DDLoginRegistViewController.xib in Resources */,
@@ -1000,6 +1018,7 @@
 				FC8609C61D8E658A006157DD /* MLAllTableViewController.m in Sources */,
 				FCA303931DAB2D66001F67CD /* MLSendPostViewController.m in Sources */,
 				FC8609E61D8E658A006157DD /* DDNewViewController.m in Sources */,
+				FCC56D621DAE163600758EB2 /* MLVoiceView.m in Sources */,
 				FC8609D51D8E658A006157DD /* DDReccmmendUser.m in Sources */,
 				FCF2BD8F1D99167400C66F67 /* FMDatabase.m in Sources */,
 				FCF2BDA61D9A18FE00C66F67 /* MLConst.m in Sources */,
@@ -1039,6 +1058,7 @@
 				FC8609D81D8E658A006157DD /* DDReccmmendUserCell.m in Sources */,
 				FC8609CB1D8E658A006157DD /* DDVioceTableViewController.m in Sources */,
 				FC6B6E521D9CF6F5001413EB /* MLBaseNewsViewController.m in Sources */,
+				FCC56D671DAE269800758EB2 /* MLVedioView.m in Sources */,
 				FC3E46231DA9DC1F000C8A68 /* MLProgressView.m in Sources */,
 				FC25F89E1DA8979600ADA790 /* MLPictureView.m in Sources */,
 				FC8609DF1D8E658A006157DD /* JYHttpTool.m in Sources */,

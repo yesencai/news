@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+@class MLWord;
 @interface MLVedioView : UIView
+/** pictureInfo */
+@property (nonatomic, strong) MLWord *vedioInfo;
+
++ (instancetype)vedioView;
 
 @end

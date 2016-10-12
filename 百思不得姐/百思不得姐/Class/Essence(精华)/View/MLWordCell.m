@@ -10,6 +10,8 @@
 #import <UIImageView+WebCache.h>
 #import "MLWord.h"
 #import "MLPictureView.h"
+#import "MLVoiceView.h"
+#import "MLVedioView.h"
 @interface MLWordCell ()
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLable;
@@ -22,6 +24,10 @@
 @property (weak, nonatomic) IBOutlet UILabel *text_Lable;
 /** 图片显示 */
 @property (nonatomic, weak) MLPictureView *pictureView;
+/** 语音显示 */
+@property (nonatomic, weak) MLVoiceView *voiceView;
+/** 视频显示 */
+@property (nonatomic, weak) MLVedioView *vedioView;
 
 @end
 
@@ -29,6 +35,9 @@
 
 #pragma mark - lazy 
 
+/**
+ 图片
+ */
 - (MLPictureView *)pictureView
 {
     if (!_pictureView) {
@@ -37,6 +46,31 @@
         _pictureView = pictureView;
     }
     return _pictureView;
+}
+
+/**
+ 声音
+ */
+- (MLVoiceView *)voiceView
+{
+    if (!_voiceView) {
+        MLVoiceView *voiceView = [MLVoiceView voiceView];
+        [self.contentView addSubview:voiceView];
+        _voiceView = voiceView;
+    }
+    return _voiceView;
+}
+/**
+ 视频
+ */
+- (MLVedioView *)vedioView
+{
+    if (!_vedioView) {
+        MLVedioView *vedioView = [MLVedioView vedioView];
+        [self.contentView addSubview:vedioView];
+        _vedioView = vedioView;
+    }
+    return _vedioView;
 }
 
 
@@ -65,7 +99,27 @@
     if (word.type == MLTopicTypePicture) {
         self.pictureView.pictureInfo = word;
         self.pictureView.frame = word.picureFrame;
+        self.pictureView.hidden = NO;
+        self.voiceView.hidden = YES;
+        self.vedioView.hidden = YES;
+    }else if (word.type == MLTopicTypeVioce) {
+        self.voiceView.voiceInfo = word;
+        self.voiceView.frame = word.voiceFrame;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = NO;
+        self.vedioView.hidden = YES;
+    }else if (word.type == MLTopicTypeVedio) {
+        self.vedioView.vedioInfo = word;
+        self.vedioView.frame = word.vedioFrame;
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.vedioView.hidden = NO;
+    }else{
+        self.pictureView.hidden = YES;
+        self.voiceView.hidden = YES;
+        self.vedioView.hidden = YES;
     }
+
     
 }
 

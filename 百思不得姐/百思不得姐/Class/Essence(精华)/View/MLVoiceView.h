@@ -7,7 +7,11 @@
 //
 
 #import <UIKit/UIKit.h>
-
+@class MLWord;
 @interface MLVoiceView : UIView
+/** pictureInfo */
+@property (nonatomic, strong) MLWord *voiceInfo;
+
++ (instancetype)voiceView;
 
 @end
