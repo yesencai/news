@@ -7,7 +7,7 @@
 //
 
 #import "MLSendPostViewController.h"
-#import "DDVerticalButton.h"
+#import "MLVerticalButton.h"
 #import <POP.h>
 @interface MLSendPostViewController ()
 /** 所有按钮 */
@@ -69,7 +69,7 @@ static CGFloat const ml_durationTitme = 0.1;
     CGFloat rowMargin = 20;
     int maxCol = 3;
     for (int i =0; i<count; i++) {
-        DDVerticalButton *verticalBtn = [[DDVerticalButton alloc]init];
+        MLVerticalButton *verticalBtn = [[MLVerticalButton alloc]init];
         [verticalBtn setTitle:titles[i] forState:UIControlStateNormal];
         [verticalBtn addTarget:self action:@selector(clickVerticalBtn:) forControlEvents:UIControlEventTouchUpInside];
         verticalBtn.titleLabel.font = [UIFont systemFontOfSize:14.];
@@ -116,7 +116,7 @@ static CGFloat const ml_durationTitme = 0.1;
 }
 
 #pragma mark - action
-- (void)clickVerticalBtn:(DDVerticalButton *)button{
+- (void)clickVerticalBtn:(MLVerticalButton *)button{
     [self dismissCompletion:^{
         NSLog(@"s%s",__func__);
     }];
@@ -132,7 +132,7 @@ static CGFloat const ml_durationTitme = 0.1;
     CGFloat colMargin = (MLScreenW - 2 * buttonStartX - 3 * buttonW) * 0.5;
     CGFloat rowMargin = 20;
     NSInteger maxCol = 3;
-    [_buttons enumerateObjectsUsingBlock:^(DDVerticalButton  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
+    [_buttons enumerateObjectsUsingBlock:^(MLVerticalButton  *obj, NSUInteger idx, BOOL * _Nonnull stop) {
         
         NSInteger row = idx / maxCol;
         NSInteger col = idx % maxCol;

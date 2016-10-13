@@ -7,8 +7,8 @@
 //
 
 #import "AppDelegate.h"
-#import "DDTabBarViewController.h"
-#import "DDGuidePageView.h"
+#import "MLTabBarViewController.h"
+#import "MLGuidePageView.h"
 @interface AppDelegate ()
 
 @end
@@ -20,12 +20,12 @@
     //创建窗口
     self.window = [[UIWindow alloc]init];
     self.window.frame = [UIScreen mainScreen].bounds;
-    DDTabBarViewController *tabBasController = [[DDTabBarViewController alloc]init];
+    MLTabBarViewController *tabBasController = [[MLTabBarViewController alloc]init];
     self.window.rootViewController = tabBasController;
     [self.window makeKeyAndVisible];
     
     //显示引导页面
-//    [[DDGuidePageView guideInstance]show];
+    [[MLGuidePageView guideInstance]show];
     return YES;
 }
 
