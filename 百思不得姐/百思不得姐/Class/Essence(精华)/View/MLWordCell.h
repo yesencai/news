@@ -8,8 +8,20 @@
 
 #import <UIKit/UIKit.h>
 
-@class MLWord;
+@class MLWord,MLVedioView,MLWordCell;
+
+@protocol MLWordCellDelegate <NSObject>
+@optional
+- (void)MLWordCell:(MLWordCell *)wordCell playVedio:(MLVedioView *)vedioView;
+
+@end
+
 @interface MLWordCell : UITableViewCell
 /** 段子模型 */
 @property (nonatomic, strong) MLWord *word;
+/** 视频显示 */
+@property (nonatomic, weak) MLVedioView *vedioView;
+/** delegate */
+@property (nonatomic, weak) id <MLWordCellDelegate> delegate;
+
 @end

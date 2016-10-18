@@ -11,7 +11,10 @@
 		FC25F89E1DA8979600ADA790 /* MLPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC25F89D1DA8979600ADA790 /* MLPictureView.m */; };
 		FC25F8A21DA89B2300ADA790 /* MLPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC25F8A11DA89B2300ADA790 /* MLPictureView.xib */; };
 		FC3E46231DA9DC1F000C8A68 /* MLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */; };
+		FC46964A1DB5CA180072005A /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC4696491DB5CA180072005A /* WMPlayer.bundle */; };
+		FC46964D1DB612D90072005A /* MLScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC46964C1DB612D90072005A /* MLScrollView.m */; };
 		FC6B6E521D9CF6F5001413EB /* MLBaseNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6B6E511D9CF6F5001413EB /* MLBaseNewsViewController.m */; };
+		FC74F97B1DAF2FDB0098CEA8 /* MLWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FC74F97A1DAF2FDB0098CEA8 /* MLWord.m */; };
 		FC8609371D8E40F8006157DD /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8609361D8E40F8006157DD /* main.m */; };
 		FC8609421D8E40F8006157DD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FC8609411D8E40F8006157DD /* Assets.xcassets */; };
 		FC8609451D8E40F8006157DD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FC8609431D8E40F8006157DD /* LaunchScreen.storyboard */; };
@@ -50,6 +53,12 @@
 		FC8609E71D8E658A006157DD /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8609C41D8E658A006157DD /* AppDelegate.m */; };
 		FC8609EE1D8E713A006157DD /* MLLoginRegistViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8609EC1D8E713A006157DD /* MLLoginRegistViewController.m */; };
 		FC8609EF1D8E713A006157DD /* MLLoginRegistViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8609ED1D8E713A006157DD /* MLLoginRegistViewController.xib */; };
+		FC8E16221DB069D0004BD099 /* MLLargerView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E16211DB069D0004BD099 /* MLLargerView.m */; };
+		FC8E16241DB069DC004BD099 /* MLLargerView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC8E16231DB069DC004BD099 /* MLLargerView.xib */; };
+		FC8E162D1DB0DD29004BD099 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8E162C1DB0DD29004BD099 /* MediaPlayer.framework */; };
+		FC8E16301DB0DD66004BD099 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E162F1DB0DD66004BD099 /* Track.m */; };
+		FC8E16331DB0DD8C004BD099 /* Track+Provider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E16321DB0DD8C004BD099 /* Track+Provider.m */; };
+		FC8E163D1DB48127004BD099 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E163B1DB48127004BD099 /* WMPlayer.m */; };
 		FCA3037E1DAA14BA001F67CD /* MLLargerImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3037C1DAA14BA001F67CD /* MLLargerImageController.m */; };
 		FCA3037F1DAA14BA001F67CD /* MLLargerImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA3037D1DAA14BA001F67CD /* MLLargerImageController.xib */; };
 		FCA303931DAB2D66001F67CD /* MLSendPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA303911DAB2D66001F67CD /* MLSendPostViewController.m */; };
@@ -76,7 +85,6 @@
 		FCF2BD971D99167400C66F67 /* NSObject+LKDBHelper.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD881D99167400C66F67 /* NSObject+LKDBHelper.m */; };
 		FCF2BD981D99167400C66F67 /* NSObject+LKModel.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD8A1D99167400C66F67 /* NSObject+LKModel.m */; };
 		FCF2BD9A1D9916B600C66F67 /* libsqlite3.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = FCF2BD991D9916B600C66F67 /* libsqlite3.0.tbd */; };
-		FCF2BD9D1D99213100C66F67 /* MLWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD9C1D99213100C66F67 /* MLWord.m */; };
 		FCF2BDA11D9922A700C66F67 /* MLWordCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BD9F1D9922A700C66F67 /* MLWordCell.m */; };
 		FCF2BDA21D9922A700C66F67 /* MLWordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCF2BDA01D9922A700C66F67 /* MLWordCell.xib */; };
 		FCF2BDA61D9A18FE00C66F67 /* MLConst.m in Sources */ = {isa = PBXBuildFile; fileRef = FCF2BDA51D9A18FE00C66F67 /* MLConst.m */; };
@@ -107,8 +115,13 @@
 		FC25F8A11DA89B2300ADA790 /* MLPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLPictureView.xib; sourceTree = "<group>"; };
 		FC3E46211DA9DC1F000C8A68 /* MLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLProgressView.h; sourceTree = "<group>"; };
 		FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLProgressView.m; sourceTree = "<group>"; };
+		FC4696491DB5CA180072005A /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
+		FC46964B1DB612D90072005A /* MLScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLScrollView.h; sourceTree = "<group>"; };
+		FC46964C1DB612D90072005A /* MLScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLScrollView.m; sourceTree = "<group>"; };
 		FC6B6E501D9CF6F5001413EB /* MLBaseNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBaseNewsViewController.h; sourceTree = "<group>"; };
 		FC6B6E511D9CF6F5001413EB /* MLBaseNewsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLBaseNewsViewController.m; sourceTree = "<group>"; };
+		FC74F9791DAF2FDB0098CEA8 /* MLWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLWord.h; sourceTree = "<group>"; };
+		FC74F97A1DAF2FDB0098CEA8 /* MLWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLWord.m; sourceTree = "<group>"; };
 		FC8609321D8E40F8006157DD /* 百思不得姐.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "百思不得姐.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FC8609361D8E40F8006157DD /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		FC8609411D8E40F8006157DD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -186,6 +199,16 @@
 		FC8609EB1D8E713A006157DD /* MLLoginRegistViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLoginRegistViewController.h; sourceTree = "<group>"; };
 		FC8609EC1D8E713A006157DD /* MLLoginRegistViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLoginRegistViewController.m; sourceTree = "<group>"; };
 		FC8609ED1D8E713A006157DD /* MLLoginRegistViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLLoginRegistViewController.xib; sourceTree = "<group>"; };
+		FC8E16201DB069D0004BD099 /* MLLargerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLargerView.h; sourceTree = "<group>"; };
+		FC8E16211DB069D0004BD099 /* MLLargerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLargerView.m; sourceTree = "<group>"; };
+		FC8E16231DB069DC004BD099 /* MLLargerView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLLargerView.xib; sourceTree = "<group>"; };
+		FC8E162C1DB0DD29004BD099 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		FC8E162E1DB0DD66004BD099 /* Track.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Track.h; sourceTree = "<group>"; };
+		FC8E162F1DB0DD66004BD099 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
+		FC8E16311DB0DD8C004BD099 /* Track+Provider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Track+Provider.h"; sourceTree = "<group>"; };
+		FC8E16321DB0DD8C004BD099 /* Track+Provider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Track+Provider.m"; sourceTree = "<group>"; };
+		FC8E163A1DB48127004BD099 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
+		FC8E163B1DB48127004BD099 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		FCA3037B1DAA14BA001F67CD /* MLLargerImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLargerImageController.h; sourceTree = "<group>"; };
 		FCA3037C1DAA14BA001F67CD /* MLLargerImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLargerImageController.m; sourceTree = "<group>"; };
 		FCA3037D1DAA14BA001F67CD /* MLLargerImageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLLargerImageController.xib; sourceTree = "<group>"; };
@@ -236,8 +259,6 @@
 		FCF2BD891D99167400C66F67 /* NSObject+LKModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+LKModel.h"; sourceTree = "<group>"; };
 		FCF2BD8A1D99167400C66F67 /* NSObject+LKModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+LKModel.m"; sourceTree = "<group>"; };
 		FCF2BD991D9916B600C66F67 /* libsqlite3.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libsqlite3.0.tbd; path = usr/lib/libsqlite3.0.tbd; sourceTree = SDKROOT; };
-		FCF2BD9B1D99213100C66F67 /* MLWord.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLWord.h; sourceTree = "<group>"; };
-		FCF2BD9C1D99213100C66F67 /* MLWord.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLWord.m; sourceTree = "<group>"; };
 		FCF2BD9E1D9922A700C66F67 /* MLWordCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLWordCell.h; sourceTree = "<group>"; };
 		FCF2BD9F1D9922A700C66F67 /* MLWordCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLWordCell.m; sourceTree = "<group>"; wrapsLines = 0; };
 		FCF2BDA01D9922A700C66F67 /* MLWordCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLWordCell.xib; sourceTree = "<group>"; };
@@ -250,6 +271,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FC8E162D1DB0DD29004BD099 /* MediaPlayer.framework in Frameworks */,
 				FCF2BD9A1D9916B600C66F67 /* libsqlite3.0.tbd in Frameworks */,
 				99AE1E36926691731605A2F1 /* libPods-百思不得姐.a in Frameworks */,
 			);
@@ -284,6 +306,7 @@
 		D1A59152E522D6C79B968D78 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E162C1DB0DD29004BD099 /* MediaPlayer.framework */,
 				FCF2BD991D9916B600C66F67 /* libsqlite3.0.tbd */,
 				FCABF8CCC49F0412C882421D /* libPods-百思不得姐.a */,
 			);
@@ -369,6 +392,7 @@
 		FC8609691D8E658A006157DD /* Essence(精华) */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E16251DB0DB61004BD099 /* Category */,
 				FC86096A1D8E658A006157DD /* Controller */,
 				FC8609791D8E658A006157DD /* Model */,
 				FC86097C1D8E658A006157DD /* View */,
@@ -405,6 +429,10 @@
 		FC8609791D8E658A006157DD /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E162E1DB0DD66004BD099 /* Track.h */,
+				FC8E162F1DB0DD66004BD099 /* Track.m */,
+				FC74F9791DAF2FDB0098CEA8 /* MLWord.h */,
+				FC74F97A1DAF2FDB0098CEA8 /* MLWord.m */,
 				FCC56D6A1DAE393D00758EB2 /* MLUser.h */,
 				FCC56D6B1DAE393D00758EB2 /* MLUser.m */,
 				FCC56D6D1DAE3AE100758EB2 /* MLComment.h */,
@@ -418,12 +446,13 @@
 		FC86097C1D8E658A006157DD /* View */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E16201DB069D0004BD099 /* MLLargerView.h */,
+				FC8E16211DB069D0004BD099 /* MLLargerView.m */,
+				FC8E16231DB069DC004BD099 /* MLLargerView.xib */,
 				FC3E46211DA9DC1F000C8A68 /* MLProgressView.h */,
 				FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */,
 				FC86097D1D8E658A006157DD /* MLRemTagCell.h */,
 				FC86097E1D8E658A006157DD /* MLRemTagCell.m */,
-				FCF2BD9B1D99213100C66F67 /* MLWord.h */,
-				FCF2BD9C1D99213100C66F67 /* MLWord.m */,
 				FCF2BD9E1D9922A700C66F67 /* MLWordCell.h */,
 				FCF2BD9F1D9922A700C66F67 /* MLWordCell.m */,
 				FCF2BDA01D9922A700C66F67 /* MLWordCell.xib */,
@@ -436,6 +465,8 @@
 				FCC56D651DAE269800758EB2 /* MLVedioView.h */,
 				FCC56D661DAE269800758EB2 /* MLVedioView.m */,
 				FCC56D681DAE26AD00758EB2 /* MLVedioView.xib */,
+				FC46964B1DB612D90072005A /* MLScrollView.h */,
+				FC46964C1DB612D90072005A /* MLScrollView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -676,6 +707,25 @@
 			path = Tool;
 			sourceTree = "<group>";
 		};
+		FC8E16251DB0DB61004BD099 /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FC8E16311DB0DD8C004BD099 /* Track+Provider.h */,
+				FC8E16321DB0DD8C004BD099 /* Track+Provider.m */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		FC8E16381DB48127004BD099 /* WMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				FC4696491DB5CA180072005A /* WMPlayer.bundle */,
+				FC8E163A1DB48127004BD099 /* WMPlayer.h */,
+				FC8E163B1DB48127004BD099 /* WMPlayer.m */,
+			);
+			path = WMPlayer;
+			sourceTree = "<group>";
+		};
 		FCA3038C1DAB2D4D001F67CD /* SendPost(发帖子) */ = {
 			isa = PBXGroup;
 			children = (
@@ -722,6 +772,7 @@
 		FCF2BD641D99167400C66F67 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
+				FC8E16381DB48127004BD099 /* WMPlayer */,
 				FCF2BD651D99167400C66F67 /* DBManager */,
 			);
 			path = Lib;
@@ -946,12 +997,14 @@
 				FCA3037F1DAA14BA001F67CD /* MLLargerImageController.xib in Resources */,
 				FCC56D641DAE164400758EB2 /* MLVoiceView.xib in Resources */,
 				FC8609D01D8E658A006157DD /* MLFriendTrendsViewController.xib in Resources */,
+				FC46964A1DB5CA180072005A /* WMPlayer.bundle in Resources */,
 				FC8609451D8E40F8006157DD /* LaunchScreen.storyboard in Resources */,
 				FCA303941DAB2D66001F67CD /* MLSendPostViewController.xib in Resources */,
 				FCF2BDA21D9922A700C66F67 /* MLWordCell.xib in Resources */,
 				FCC56D691DAE26AD00758EB2 /* MLVedioView.xib in Resources */,
 				FC8609421D8E40F8006157DD /* Assets.xcassets in Resources */,
 				FC8609E51D8E658A006157DD /* DFDViewController.xib in Resources */,
+				FC8E16241DB069DC004BD099 /* MLLargerView.xib in Resources */,
 				FC8609EF1D8E713A006157DD /* MLLoginRegistViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1027,6 +1080,8 @@
 			files = (
 				FC8609C61D8E658A006157DD /* MLAllTableViewController.m in Sources */,
 				FCA303931DAB2D66001F67CD /* MLSendPostViewController.m in Sources */,
+				FC74F97B1DAF2FDB0098CEA8 /* MLWord.m in Sources */,
+				FC8E16301DB0DD66004BD099 /* Track.m in Sources */,
 				FC8609E61D8E658A006157DD /* MLNewViewController.m in Sources */,
 				FCC56D621DAE163600758EB2 /* MLVoiceView.m in Sources */,
 				FC8609D51D8E658A006157DD /* MLReccmmendUser.m in Sources */,
@@ -1050,12 +1105,15 @@
 				FC8609DE1D8E658A006157DD /* MLTabBarViewController.m in Sources */,
 				FC8609C71D8E658A006157DD /* MLEssenceViewController.m in Sources */,
 				FC8609E41D8E658A006157DD /* DFDViewController.m in Sources */,
+				FC8E16221DB069D0004BD099 /* MLLargerView.m in Sources */,
 				FCF2BD921D99167400C66F67 /* FMDatabaseQueue.m in Sources */,
 				FC8609D71D8E658A006157DD /* MLReccmmendCell.m in Sources */,
 				FCF2BD8C1D99167400C66F67 /* BaseDataModel.m in Sources */,
 				FCC56D6C1DAE393D00758EB2 /* MLUser.m in Sources */,
 				FC8609D61D8E658A006157DD /* MLPlaceHolderTextField.m in Sources */,
 				FC8609CD1D8E658A006157DD /* MLRemTag.m in Sources */,
+				FC46964D1DB612D90072005A /* MLScrollView.m in Sources */,
+				FC8E163D1DB48127004BD099 /* WMPlayer.m in Sources */,
 				FCF2BD911D99167400C66F67 /* FMDatabasePool.m in Sources */,
 				FCF2BDA11D9922A700C66F67 /* MLWordCell.m in Sources */,
 				FC8609CC1D8E658A006157DD /* MLWordTableViewController.m in Sources */,
@@ -1063,7 +1121,6 @@
 				FCF2BD8B1D99167400C66F67 /* BaseDAO.m in Sources */,
 				FC8609D41D8E658A006157DD /* MLReccmmend.m in Sources */,
 				FC8609C81D8E658A006157DD /* MLPictureTableViewController.m in Sources */,
-				FCF2BD9D1D99213100C66F67 /* MLWord.m in Sources */,
 				FCA3037E1DAA14BA001F67CD /* MLLargerImageController.m in Sources */,
 				FC8609E31D8E658A006157DD /* MLMeViewController.m in Sources */,
 				FC8609D81D8E658A006157DD /* MLReccmmendUserCell.m in Sources */,
@@ -1083,6 +1140,7 @@
 				FC8609371D8E40F8006157DD /* main.m in Sources */,
 				FC8609CA1D8E658A006157DD /* MLVedioTableViewController.m in Sources */,
 				FC8609EE1D8E713A006157DD /* MLLoginRegistViewController.m in Sources */,
+				FC8E16331DB0DD8C004BD099 /* Track+Provider.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

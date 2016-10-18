@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -19,13 +20,23 @@
                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YXV-Lb-CYk" userLabel="图片">
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                 </imageView>
+                <view hidden="YES" alpha="0.69999999999999996" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="el9-mG-A6P">
+                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="30" id="zEz-zh-ZLm"/>
+                    </constraints>
+                </view>
+                <slider hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="LAD-Kx-snl">
+                    <color key="tintColor" red="1" green="0.16944542879999999" blue="0.15320702250000001" alpha="1" colorSpace="calibratedRGB"/>
+                </slider>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gUE-AI-DdX">
                     <constraints>
                         <constraint firstAttribute="height" constant="63" id="2ma-xJ-o1p"/>
                         <constraint firstAttribute="width" constant="63" id="msj-iS-6Ae"/>
                     </constraints>
                     <state key="normal" image="playButtonPlay" backgroundImage="playButton"/>
-                    <state key="highlighted" image="playButtonClick" backgroundImage="playButtonPause"/>
+                    <state key="selected" image="playButtonPause"/>
+                    <state key="highlighted" image="playButtonPause" backgroundImage="playButtonClick"/>
                     <connections>
                         <action selector="play:" destination="YJy-9z-1fn" eventType="touchUpInside" id="XFi-FK-MiJ"/>
                     </connections>
@@ -47,22 +58,31 @@
                 <constraint firstItem="Gbo-8d-SRc" firstAttribute="leading" secondItem="YJy-9z-1fn" secondAttribute="leading" id="3BP-Hl-dGT"/>
                 <constraint firstAttribute="bottom" secondItem="gUE-AI-DdX" secondAttribute="bottom" id="5H3-HA-iQu"/>
                 <constraint firstAttribute="bottom" secondItem="yj3-oE-fEI" secondAttribute="bottom" constant="10" id="6gK-8U-bMT"/>
-                <constraint firstItem="gUE-AI-DdX" firstAttribute="centerX" secondItem="YJy-9z-1fn" secondAttribute="centerX" id="IfW-7W-tMV"/>
+                <constraint firstAttribute="trailing" secondItem="el9-mG-A6P" secondAttribute="trailing" id="8G5-M0-uNy"/>
+                <constraint firstItem="el9-mG-A6P" firstAttribute="leading" secondItem="YJy-9z-1fn" secondAttribute="leading" id="Bgg-Ws-zYT"/>
+                <constraint firstItem="el9-mG-A6P" firstAttribute="bottom" secondItem="YXV-Lb-CYk" secondAttribute="bottom" id="C3f-se-b2q"/>
+                <constraint firstItem="LAD-Kx-snl" firstAttribute="leading" secondItem="YJy-9z-1fn" secondAttribute="leading" constant="62" id="HB9-ew-Jrs"/>
+                <constraint firstItem="gUE-AI-DdX" firstAttribute="leading" secondItem="YJy-9z-1fn" secondAttribute="centerX" constant="-31.5" id="IfW-7W-tMV"/>
                 <constraint firstAttribute="trailing" secondItem="Gbo-8d-SRc" secondAttribute="trailing" id="Its-t9-o0K"/>
                 <constraint firstItem="YXV-Lb-CYk" firstAttribute="top" secondItem="YJy-9z-1fn" secondAttribute="top" id="J6g-0j-VCx"/>
                 <constraint firstItem="Gbo-8d-SRc" firstAttribute="top" secondItem="YJy-9z-1fn" secondAttribute="top" id="K3d-BE-g3T"/>
                 <constraint firstAttribute="bottom" secondItem="YXV-Lb-CYk" secondAttribute="bottom" constant="10" id="dkO-Xq-yDe"/>
                 <constraint firstAttribute="trailing" secondItem="odd-lU-R31" secondAttribute="trailing" id="gdy-7A-AcZ"/>
+                <constraint firstAttribute="trailing" secondItem="LAD-Kx-snl" secondAttribute="trailing" id="ik4-uc-LVO"/>
                 <constraint firstItem="YXV-Lb-CYk" firstAttribute="leading" secondItem="YJy-9z-1fn" secondAttribute="leading" id="sgf-y8-0aJ"/>
                 <constraint firstAttribute="bottom" secondItem="odd-lU-R31" secondAttribute="bottom" constant="10" id="wqM-TS-5Yr"/>
                 <constraint firstAttribute="trailing" secondItem="YXV-Lb-CYk" secondAttribute="trailing" id="y3I-YB-6dL"/>
+                <constraint firstItem="el9-mG-A6P" firstAttribute="top" secondItem="LAD-Kx-snl" secondAttribute="bottom" constant="-8" id="yqs-KO-alZ"/>
             </constraints>
             <nil key="simulatedStatusBarMetrics"/>
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
+                <outlet property="bottomView" destination="el9-mG-A6P" id="rqm-Uv-YI9"/>
+                <outlet property="leftConstraint" destination="IfW-7W-tMV" id="62d-IO-O5A"/>
                 <outlet property="playButton" destination="gUE-AI-DdX" id="0sX-7F-cmf"/>
                 <outlet property="playCount" destination="yj3-oE-fEI" id="Lw2-ct-AE7"/>
+                <outlet property="slider" destination="LAD-Kx-snl" id="UlO-jQ-8wJ"/>
                 <outlet property="timeLenght" destination="odd-lU-R31" id="tB0-DD-3pl"/>
                 <outlet property="vioceImageView" destination="YXV-Lb-CYk" id="k5T-hu-7hn"/>
             </connections>

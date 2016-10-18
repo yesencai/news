@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,8 +23,8 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RB6-6C-czu" customClass="MLProgressView">
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <constraints>
-                        <constraint firstAttribute="width" constant="100" id="ECh-4z-ho1"/>
-                        <constraint firstAttribute="height" constant="100" id="tSA-ew-D4b"/>
+                        <constraint firstAttribute="width" constant="80" id="m9y-7l-Z5c"/>
+                        <constraint firstAttribute="height" constant="80" id="pi0-SY-9ef"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NST-Eq-ljj" userLabel="转发">
@@ -68,7 +67,6 @@
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstAttribute="bottom" secondItem="f8W-Ab-INt" secondAttribute="bottom" constant="10" id="2Dn-Cs-N4l"/>
-                <constraint firstItem="RB6-6C-czu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="Avm-Hj-Jtl"/>
                 <constraint firstAttribute="trailing" secondItem="NST-Eq-ljj" secondAttribute="trailing" constant="90" id="CLL-3Q-VWf"/>
                 <constraint firstItem="R7m-wq-h9J" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" constant="20" id="IYx-a1-jYg"/>
                 <constraint firstItem="R7m-wq-h9J" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="20" id="KRL-wh-xdL"/>
@@ -76,8 +74,9 @@
                 <constraint firstItem="yDZ-it-1FG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ayI-1I-6yW"/>
                 <constraint firstAttribute="bottom" secondItem="NST-Eq-ljj" secondAttribute="bottom" constant="10" id="bNN-lY-fqC"/>
                 <constraint firstAttribute="bottom" secondItem="yDZ-it-1FG" secondAttribute="bottom" id="cwD-1x-trK"/>
-                <constraint firstItem="RB6-6C-czu" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="fNW-MH-qJ4"/>
+                <constraint firstItem="RB6-6C-czu" firstAttribute="centerY" secondItem="i5M-Pr-FkT" secondAttribute="centerY" id="gnH-ON-AZb"/>
                 <constraint firstAttribute="trailing" secondItem="yDZ-it-1FG" secondAttribute="trailing" id="lp7-cv-swu"/>
+                <constraint firstItem="RB6-6C-czu" firstAttribute="centerX" secondItem="i5M-Pr-FkT" secondAttribute="centerX" id="xe0-ih-ZfH"/>
                 <constraint firstAttribute="trailing" secondItem="f8W-Ab-INt" secondAttribute="trailing" constant="10" id="zJQ-FV-2Mt"/>
             </constraints>
             <point key="canvasLocation" x="33.5" y="87.5"/>

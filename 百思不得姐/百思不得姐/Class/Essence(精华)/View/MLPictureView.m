@@ -10,7 +10,7 @@
 #import <UIImageView+WebCache.h>
 #import "MLWord.h"
 #import "MLProgressView.h"
-#import "MLLargerImageController.h"
+#import "MLLargerView.h"
 #import "SVProgressHUD.h"
 @interface MLPictureView()
 @property (weak, nonatomic) IBOutlet UIImageView *gifImageView;
@@ -64,11 +64,9 @@
 
 #pragma mark - action
 - (void)show{
-    
-    MLLargerImageController *largerVC = [MLLargerImageController new];
-    largerVC.topic = self.pictureInfo;
-    largerVC.modalPresentationStyle = UIModalPresentationPopover;
-    largerVC.modalTransitionStyle = UIModalTransitionStyleCrossDissolve;
-    [[UIApplication sharedApplication].windows.lastObject.rootViewController presentViewController:largerVC animated:YES completion:nil];
+    MLLargerView *view = [MLLargerView largerView];
+    view.topic = self.pictureInfo;
+    [view show];
+
 }
 @end

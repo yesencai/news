@@ -9,14 +9,11 @@
 #import "MLVedioView.h"
 #import "MLWord.h"
 #import <UIImageView+WebCache.h>
-
+#import "WMPlayer.h"
 @interface MLVedioView ()
-
 @property (weak, nonatomic) IBOutlet UILabel *playCount;
 @property (weak, nonatomic) IBOutlet UILabel *timeLenght;
-@property (weak, nonatomic) IBOutlet UIImageView *vedioImageView;
-
-
+@property (weak, nonatomic) IBOutlet UIButton *playButton;
 @end
 @implementation MLVedioView
 
@@ -27,7 +24,6 @@
 - (void)awakeFromNib{
     [super awakeFromNib];
     self.vedioImageView.userInteractionEnabled = YES;
-    [self.vedioImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(play)]];
 }
 
 #pragma mark - setter && getter方法
@@ -41,15 +37,19 @@
     second = second % 60;
     self.timeLenght.text = [NSString stringWithFormat:@"%02zd:%zd",minute,second];
     self.playCount.text = [NSString stringWithFormat:@"%zd播放",vedioInfo.playcount];
-    
-}
 
+    [self.subviews enumerateObjectsUsingBlock:^(__kindof UIView * _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) {
+        if ([obj isKindOfClass:[WMPlayer class]]) {
+            if (vedioInfo.isVedioPlay) {
+                obj.hidden = NO;
+            }else{
+               obj.hidden = YES;
+            }
+
+        }
+    }];
+
+}
 #pragma mark - action
 
-/**
- 播放视频
- */
-- (void)play{
-    
-}
 @end

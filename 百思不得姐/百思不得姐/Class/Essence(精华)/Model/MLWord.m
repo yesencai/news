@@ -7,11 +7,17 @@
 //
 
 #import "MLWord.h"
+#import "MLComment.h"
+#import <MJExtension.h>
 #import "NSDate+MLCompare.h"
 @implementation MLWord
 
 + (NSDictionary *)mj_replacedKeyFromPropertyName{
     return @{@"small_image":@"image0",@"midde_image":@"image2",@"big_image":@"image1"};
+}
+
++ (NSDictionary *)mj_objectClassInArray{
+    return @{@"top_cmt":[MLComment class]};
 }
 
 - (NSString *)create_time{

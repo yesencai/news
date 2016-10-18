@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-
+@class MLComment;
 @interface MLWord : NSObject
 
 /** 名字 */
@@ -46,8 +46,12 @@
 @property (nonatomic, assign) NSInteger voicetime;
 /** 视频播放时长 */
 @property (nonatomic, assign) NSInteger vodiotime;
-
-
+/** 热门评论 */
+@property (nonatomic, strong) NSArray <MLComment *> *top_cmt;
+/** 音频文件 */
+@property (nonatomic, copy) NSString *voiceuri;
+/** 视频文件 */
+@property (nonatomic, copy) NSString *videouri;
 #pragma mark - 额外属性
 /** cell的高度 */
 @property (nonatomic, assign) CGFloat cellHeight;
@@ -60,6 +64,9 @@
 
 /** 是否是大图 */
 @property (nonatomic, assign,getter=isBigPicture) BOOL bigPicture;
-
+/** 是否已经点击声音播放按钮 */
+@property (nonatomic, assign,getter=isVoicePlay) BOOL voicePlay;
+/** 是否已经点击视频播放 */
+@property (nonatomic, assign,getter=isVedioPlay) BOOL vedioPlay;
 
 @end

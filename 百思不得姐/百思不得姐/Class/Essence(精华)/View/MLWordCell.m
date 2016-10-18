@@ -12,7 +12,8 @@
 #import "MLPictureView.h"
 #import "MLVoiceView.h"
 #import "MLVedioView.h"
-@interface MLWordCell ()
+#import "WMPlayer.h"
+@interface MLWordCell ()<WMPlayerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *headImageView;
 @property (weak, nonatomic) IBOutlet UILabel *nickNameLable;
 @property (weak, nonatomic) IBOutlet UILabel *timeLable;
@@ -26,8 +27,6 @@
 @property (nonatomic, weak) MLPictureView *pictureView;
 /** 语音显示 */
 @property (nonatomic, weak) MLVoiceView *voiceView;
-/** 视频显示 */
-@property (nonatomic, weak) MLVedioView *vedioView;
 
 @end
 
@@ -67,12 +66,12 @@
 {
     if (!_vedioView) {
         MLVedioView *vedioView = [MLVedioView vedioView];
+        [vedioView.vedioImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(play)]];
         [self.contentView addSubview:vedioView];
         _vedioView = vedioView;
     }
     return _vedioView;
 }
-
 
 #pragma mark - setter && getter方法重写
 
@@ -119,15 +118,11 @@
         self.voiceView.hidden = YES;
         self.vedioView.hidden = YES;
     }
-
-    
 }
 
 /**
  计算title的数量
-
  @param count title原数量
-
  @return 返回新数量
  */
 - (NSString *)calculateTitleCount:(NSInteger)count{
@@ -141,8 +136,6 @@
     frame.origin.y += margin;
     super.frame = frame;
 }
-
-
 - (void)awakeFromNib {
     [super awakeFromNib];
     
@@ -152,10 +145,12 @@
     self.selectionStyle = UITableViewCellSelectionStyleNone;
     self.text_Lable.numberOfLines = 0;
 }
-- (void)setSelected:(BOOL)selected animated:(BOOL)animated {
-    [super setSelected:selected animated:animated];
 
-    // Configure the view for the selected state
+#pragma mark - action 
+- (void)play{
+    if ([_delegate respondsToSelector:@selector(MLWordCell:playVedio:)]) {
+        [_delegate MLWordCell:self playVedio:self.vedioView];
+    }
 }
 
 @end

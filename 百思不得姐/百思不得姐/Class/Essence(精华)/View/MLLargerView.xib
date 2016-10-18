@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11201" systemVersion="16A323" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11161"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="VGt-ef-mgg" customClass="MLLargerView">
+            <rect key="frame" x="0.0" y="0.0" width="423" height="618"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Wib-po-4wH">
+                    <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
+                </scrollView>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wnO-TO-Mm1" customClass="MLProgressView">
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="80" id="8yd-P9-kg9"/>
+                        <constraint firstAttribute="width" constant="80" id="U1b-bM-q01"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lKG-So-rD9" userLabel="转发">
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="35" id="epd-Cx-xc7"/>
+                        <constraint firstAttribute="width" constant="60" id="tKB-9I-mn4"/>
+                    </constraints>
+                    <state key="normal" title="转发">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubR-Ae-gDh">
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="60" id="5wV-mC-XBR"/>
+                        <constraint firstAttribute="height" constant="35" id="YQg-3V-cNm"/>
+                    </constraints>
+                    <state key="normal" title="保存">
+                        <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="pts-TV-ZeG" userLabel="返回">
+                    <constraints>
+                        <constraint firstAttribute="width" constant="40" id="NYK-Wh-Kcb"/>
+                        <constraint firstAttribute="height" constant="40" id="cbX-uk-fWi"/>
+                    </constraints>
+                    <state key="normal" image="login_close_icon"/>
+                    <connections>
+                        <action selector="dissmiss:" destination="VGt-ef-mgg" eventType="touchUpInside" id="4dv-VB-Txe"/>
+                    </connections>
+                </button>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <constraints>
+                <constraint firstItem="Wib-po-4wH" firstAttribute="top" secondItem="VGt-ef-mgg" secondAttribute="top" id="B0R-Jq-lgW"/>
+                <constraint firstAttribute="trailing" secondItem="lKG-So-rD9" secondAttribute="trailing" constant="90" id="BEN-z8-edF"/>
+                <constraint firstItem="Wib-po-4wH" firstAttribute="leading" secondItem="VGt-ef-mgg" secondAttribute="leading" id="Cko-me-eCg"/>
+                <constraint firstItem="pts-TV-ZeG" firstAttribute="leading" secondItem="VGt-ef-mgg" secondAttribute="leading" constant="20" id="M2q-yr-ncE"/>
+                <constraint firstAttribute="trailing" secondItem="Wib-po-4wH" secondAttribute="trailing" id="NXF-s4-nCa"/>
+                <constraint firstItem="wnO-TO-Mm1" firstAttribute="centerY" secondItem="VGt-ef-mgg" secondAttribute="centerY" id="TAJ-JG-FnB"/>
+                <constraint firstAttribute="bottom" secondItem="Wib-po-4wH" secondAttribute="bottom" id="TSt-vO-ODr"/>
+                <constraint firstItem="wnO-TO-Mm1" firstAttribute="centerX" secondItem="VGt-ef-mgg" secondAttribute="centerX" id="VaO-5U-GtB"/>
+                <constraint firstAttribute="bottom" secondItem="lKG-So-rD9" secondAttribute="bottom" constant="10" id="kHR-pK-TtG"/>
+                <constraint firstAttribute="bottom" secondItem="ubR-Ae-gDh" secondAttribute="bottom" constant="10" id="mZx-Mg-066"/>
+                <constraint firstItem="pts-TV-ZeG" firstAttribute="top" secondItem="VGt-ef-mgg" secondAttribute="top" constant="20" id="owk-DC-Xt6"/>
+                <constraint firstAttribute="trailing" secondItem="ubR-Ae-gDh" secondAttribute="trailing" constant="10" id="uqn-Hq-iPi"/>
+            </constraints>
+            <nil key="simulatedStatusBarMetrics"/>
+            <nil key="simulatedTopBarMetrics"/>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="progressView" destination="wnO-TO-Mm1" id="yzh-Nx-s3i"/>
+                <outlet property="scrollView" destination="Wib-po-4wH" id="UlE-QD-6bh"/>
+            </connections>
+            <point key="canvasLocation" x="78" y="-23"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="login_close_icon" width="16" height="16"/>
+    </resources>
+</document>

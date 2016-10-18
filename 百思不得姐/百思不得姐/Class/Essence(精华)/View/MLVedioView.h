@@ -8,10 +8,14 @@
 
 #import <UIKit/UIKit.h>
 
-@class MLWord;
+@class MLWord,WMPlayer;
 @interface MLVedioView : UIView
+//@property (weak, nonatomic) IBOutlet WMPlayer *wmPlayer;
+//@property (weak, nonatomic) WMPlayer *wmPlayer;
+
 /** pictureInfo */
 @property (nonatomic, strong) MLWord *vedioInfo;
+@property (weak, nonatomic) IBOutlet UIImageView *vedioImageView;
 
 + (instancetype)vedioView;
 

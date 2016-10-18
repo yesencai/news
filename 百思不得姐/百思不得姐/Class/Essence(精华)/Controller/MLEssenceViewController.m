@@ -13,10 +13,11 @@
 #import "MLVioceTableViewController.h"
 #import "MLPictureTableViewController.h"
 #import "MLWordTableViewController.h"
+#import "MLScrollView.h"
 @interface MLEssenceViewController ()<UIScrollViewDelegate>
 @property(nonatomic,strong)UIView *seleteView;
 @property(nonatomic,weak)UIButton *btn;
-@property(nonatomic,strong)UIScrollView *contentView;
+@property(nonatomic,strong)MLScrollView *contentView;
 @property(nonatomic,weak)UIView *titleView;
 
 @end
@@ -109,7 +110,8 @@
 //设置
 - (void)setupScrollView{
     self.automaticallyAdjustsScrollViewInsets = NO;
-    UIScrollView *scrollView = [[UIScrollView alloc]init];
+    MLScrollView *scrollView = [[MLScrollView alloc]init];
+    scrollView.delaysContentTouches =  NO;
     scrollView.delegate = self;
     scrollView.backgroundColor = [UIColor clearColor];
     scrollView.pagingEnabled = YES;
@@ -133,6 +135,7 @@
     [self.contentView setContentOffset:offset animated:YES];
     
 }
+
 -(void)clickTag{
     MLRemTagTableViewController *tag = [[MLRemTagTableViewController alloc]init];
     [self.navigationController pushViewController:tag animated:YES];

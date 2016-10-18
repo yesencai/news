@@ -8,5 +8,7 @@ pod 'SDWebImage', '~> 3.7.5'
 pod 'Masonry', '~> 0.6.4'
 pod 'DACircularProgress'
 pod 'pop', '~> 1.0.9'
+pod 'DOUAudioStreamer', '~> 0.2.15'
+pod 'Masonry', '~> 0.6.4'
 
 end

@@ -8,7 +8,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="Ku7-XW-vr0" userLabel="MLVedioView" customClass="MLVedioView">
-            <rect key="frame" x="0.0" y="0.0" width="706" height="706"/>
+            <rect key="frame" x="0.0" y="0.0" width="582" height="409"/>
             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
             <subviews>
                 <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="imageBackground" translatesAutoresizingMaskIntoConstraints="NO" id="8hu-me-UIH" userLabel="水印">
@@ -58,13 +58,12 @@
             <nil key="simulatedTopBarMetrics"/>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
-                <outlet property="playButton" destination="Gx0-O7-xXg" id="7vr-TI-Xcv"/>
+                <outlet property="playButton" destination="Gx0-O7-xXg" id="RoG-TO-ADv"/>
                 <outlet property="playCount" destination="B2c-gl-mGu" id="eMB-eU-4JI"/>
                 <outlet property="timeLenght" destination="gsf-4C-yIK" id="pn3-0J-Url"/>
                 <outlet property="vedioImageView" destination="8ve-Rd-ZZg" id="EGg-rD-ZW9"/>
-                <outlet property="vioceImageView" destination="8ve-Rd-ZZg" id="YLE-SM-uU5"/>
             </connections>
-            <point key="canvasLocation" x="136" y="65"/>
+            <point key="canvasLocation" x="74" y="-83.5"/>
         </view>
     </objects>
     <resources>
