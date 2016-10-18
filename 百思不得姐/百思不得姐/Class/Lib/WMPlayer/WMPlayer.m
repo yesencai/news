@@ -761,12 +761,12 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
                     doubleTap.numberOfTapsRequired = 2; // 双击
                     [singleTap requireGestureRecognizerToFail:doubleTap];//如果双击成立，则取消单击手势（双击的时候不回走单击事件）
                     [self addGestureRecognizer:doubleTap];
-                    
-                    UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
-                    pan.delegate = self;
-                    pan.minimumNumberOfTouches = 1;
-                    pan.maximumNumberOfTouches = 1;
-                    [self addGestureRecognizer:pan];
+//                    
+//                    UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
+//                    pan.delegate = self;
+//                    pan.minimumNumberOfTouches = 1;
+//                    pan.maximumNumberOfTouches = 1;
+//                    [self addGestureRecognizer:pan];
                     /* Once the AVPlayerItem becomes ready to play, i.e.
                      [playerItem status] == AVPlayerItemStatusReadyToPlay,
                      its duration can be fetched from the item. */
