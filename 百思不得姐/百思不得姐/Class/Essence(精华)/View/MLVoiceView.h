@@ -11,7 +11,10 @@
 @interface MLVoiceView : UIView
 /** pictureInfo */
 @property (nonatomic, strong) MLWord *voiceInfo;
-
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
+@property (weak, nonatomic) IBOutlet UISlider *slider;
+@property (weak, nonatomic) IBOutlet UIButton *playVoiceBtn;
 + (instancetype)voiceView;
 
 @end

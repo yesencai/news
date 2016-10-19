@@ -66,6 +66,8 @@
 @property (nonatomic, assign,getter=isBigPicture) BOOL bigPicture;
 /** 是否已经点击声音播放按钮 */
 @property (nonatomic, assign,getter=isVoicePlay) BOOL voicePlay;
+/** 声音按钮正常状态 */
+@property (nonatomic, assign,getter=isNormalPlay) BOOL normalPlay;
 /** 是否已经点击视频播放 */
 @property (nonatomic, assign,getter=isVedioPlay) BOOL vedioPlay;
 

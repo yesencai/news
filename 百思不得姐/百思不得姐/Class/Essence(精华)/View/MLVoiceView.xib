@@ -37,9 +37,6 @@
                     <state key="normal" image="playButtonPlay" backgroundImage="playButton"/>
                     <state key="selected" image="playButtonPause"/>
                     <state key="highlighted" image="playButtonPause" backgroundImage="playButtonClick"/>
-                    <connections>
-                        <action selector="play:" destination="YJy-9z-1fn" eventType="touchUpInside" id="XFi-FK-MiJ"/>
-                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yj3-oE-fEI" userLabel="播放量">
                     <fontDescription key="fontDescription" type="system" pointSize="13"/>
@@ -80,8 +77,8 @@
             <connections>
                 <outlet property="bottomView" destination="el9-mG-A6P" id="rqm-Uv-YI9"/>
                 <outlet property="leftConstraint" destination="IfW-7W-tMV" id="62d-IO-O5A"/>
-                <outlet property="playButton" destination="gUE-AI-DdX" id="0sX-7F-cmf"/>
                 <outlet property="playCount" destination="yj3-oE-fEI" id="Lw2-ct-AE7"/>
+                <outlet property="playVoiceBtn" destination="gUE-AI-DdX" id="bzf-AD-lmz"/>
                 <outlet property="slider" destination="LAD-Kx-snl" id="UlO-jQ-8wJ"/>
                 <outlet property="timeLenght" destination="odd-lU-R31" id="tB0-DD-3pl"/>
                 <outlet property="vioceImageView" destination="YXV-Lb-CYk" id="k5T-hu-7hn"/>

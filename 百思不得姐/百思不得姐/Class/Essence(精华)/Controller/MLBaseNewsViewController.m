@@ -14,7 +14,10 @@
 #import "MLWordCell.h"
 #import "MLVedioView.h"
 #import "WMPlayer.h"
-
+#import <DOUAudioStreamer.h>
+#import "Track.h"
+#import "Track+Provider.h"
+#import "MLVoiceView.h"
 
 #define MLScreenH [UIScreen mainScreen].bounds.size.height
 #define MLScreenW [UIScreen mainScreen].bounds.size.width
@@ -41,7 +44,20 @@ static NSString *const ml_word_url = @"http://api.budejie.com/api/api_open.php";
 @property (nonatomic, strong) MLVedioView *vedioView;
 /** 小窗口 */
 @property (nonatomic, assign,getter=isSmallScreen) BOOL smallScreen;
-
+/** 音频播放流 */
+@property (nonatomic, strong) DOUAudioStreamer *streamer;
+/** tracks */
+@property (nonatomic, strong) Track *track;
+/** MLVoiceView */
+@property (nonatomic, strong) MLVoiceView *voiceView;
+/**  */
+@property (nonatomic, assign) BOOL isPlay;
+/** MLWord *word */
+@property (nonatomic, strong) MLWord *word;
+/** 定时器 */
+@property (nonatomic, strong) NSTimer *timer;
+/** 滑动空间 */
+@property (nonatomic, strong) UISlider *ml_slider;
 @end
 
 @implementation MLBaseNewsViewController
@@ -192,6 +208,7 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     MLWordCell *cell = [tableView dequeueReusableCellWithIdentifier:MLWordCellId];
     cell.delegate = self;
     MLWord *word = self.topics[indexPath.row];
+    cell.voiceView.playVoiceBtn.selected = word.normalPlay;
     cell.word = word;
     return cell;
 }
@@ -461,6 +478,68 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     [self.tableView reloadData];
 
 }
+- (void)MLWordCell:(MLWordCell *)wordCell playVoice:(MLVoiceView *)voiceView{
+    self.ml_slider = voiceView.slider;
+    NSIndexPath* indexPath = [self.tableView indexPathForCell:wordCell];
+    MLWord *word = self.topics[indexPath.row];
+    if (!voiceView.playVoiceBtn.selected && !word.voicePlay) {
+        [_streamer stop];
+        self.track = [Track remoteTracks:word.voiceuri];
+        [self _resetStreamer];
+        _timer = [NSTimer scheduledTimerWithTimeInterval:1.0 target:self selector:@selector(_timerAction:) userInfo:nil repeats:YES];
+        [[NSRunLoop currentRunLoop]addTimer:_timer forMode:NSDefaultRunLoopMode];
+    }
+    if (self.word) {
+        self.word.voicePlay = NO;
+        self.word.normalPlay = word.normalPlay;
+    }
+    word.normalPlay = !word.normalPlay;
+    self.word = word;
+    word.voicePlay = YES;
+    if ([_streamer status] == DOUAudioStreamerPaused ||
+        [_streamer status] == DOUAudioStreamerIdle) {
+        [_streamer play];
+    }else{
+        [_streamer pause];
+    }
+    [self.tableView reloadData];
+}
+
+- (void)MLWordCell:(MLWordCell *)wordCell sliderValueChange:(UISlider *)sliderChange{
+    [_streamer setCurrentTime:[_streamer duration] * [sliderChange value]];
+
+}
+- (void)MLWordCell:(MLWordCell *)wordCell sliderTouch:(UISlider *)sliderTouch pan:(UITapGestureRecognizer *)pan{
+    CGPoint touchLocation = [pan locationInView:sliderTouch];
+    CGFloat value = (sliderTouch.maximumValue - sliderTouch.minimumValue) * (touchLocation.x/sliderTouch.frame.size.width);
+    [sliderTouch setValue:value animated:YES];
+    [_streamer setCurrentTime:[_streamer duration] * [sliderTouch value]];
+}
+- (void)_resetStreamer
+{
+    [self _cancelStreamer];
+    if (self.track) {
+        _streamer = [DOUAudioStreamer streamerWithAudioFile:_track];
+    }
+    [_streamer play];
+    [DOUAudioStreamer setHintWithAudioFile:_track];
+    
+}
+- (void)_cancelStreamer
+{
+    if (_streamer != nil) {
+        [_streamer pause];
+        _streamer = nil;
+    }
+}
+- (void)_timerAction:(NSTimer *)timer{
+    if ([_streamer duration] == 0.0) {
+        [self.ml_slider setValue:0.0f animated:NO];
+    }else {
+        [self.ml_slider setValue:[_streamer currentTime] / [_streamer duration] animated:YES];
+    }
+}
+
 /**
  *  释放WMPlayer
  */

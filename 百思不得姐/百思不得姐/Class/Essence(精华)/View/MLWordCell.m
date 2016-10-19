@@ -25,8 +25,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *text_Lable;
 /** 图片显示 */
 @property (nonatomic, weak) MLPictureView *pictureView;
-/** 语音显示 */
-@property (nonatomic, weak) MLVoiceView *voiceView;
+
 
 @end
 
@@ -54,6 +53,10 @@
 {
     if (!_voiceView) {
         MLVoiceView *voiceView = [MLVoiceView voiceView];
+        [voiceView.playVoiceBtn addTarget:self action:@selector(actionPlayVoice:) forControlEvents:UIControlEventTouchUpInside];
+        [voiceView.slider addTarget:self action:@selector(sliderValueChange:) forControlEvents:UIControlEventValueChanged];
+        [voiceView.slider addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(actionTapGesture:)]];
+
         [self.contentView addSubview:voiceView];
         _voiceView = voiceView;
     }
@@ -152,5 +155,19 @@
         [_delegate MLWordCell:self playVedio:self.vedioView];
     }
 }
-
+- (void)actionPlayVoice:(UIButton *)play{
+    if ([_delegate respondsToSelector:@selector(MLWordCell:playVoice:)]) {
+        [_delegate MLWordCell:self playVoice:self.voiceView];
+    }
+}
+- (void)sliderValueChange:(UISlider *)slider{
+    if ([_delegate respondsToSelector:@selector(MLWordCell:sliderValueChange:)]) {
+        [_delegate MLWordCell:self sliderValueChange:slider];
+    }
+}
+- (void)actionTapGesture:(UITapGestureRecognizer *)pan{
+    if ([_delegate respondsToSelector:@selector(MLWordCell:sliderTouch:pan:)]) {
+        [_delegate MLWordCell:self sliderTouch:self.voiceView.slider pan:pan];
+    }
+}
 @end

@@ -17,12 +17,9 @@
 #import "Track+Provider.h"
 @interface MLVoiceView()
 @property (weak, nonatomic) IBOutlet UIImageView *vioceImageView;
-@property (weak, nonatomic) IBOutlet UIButton *playButton;
 @property (weak, nonatomic) IBOutlet UILabel *timeLenght;
 @property (weak, nonatomic) IBOutlet UILabel *playCount;
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
-@property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftConstraint;
-@property (weak, nonatomic) IBOutlet UISlider *slider;
+
 /** 只进入一次 */
 @property (nonatomic, assign,getter=isOnece) BOOL onece;
 
@@ -30,9 +27,6 @@
 @property (nonatomic, strong) DOUAudioStreamer *streamer;
 /** tracks */
 @property (nonatomic, strong) Track *track;
-/**   NSUInteger _currentTrackIndex;
- */
-@property (nonatomic, assign) NSUInteger currentTrackIndex;
 
 @end
 static UIWindow *_assistant;
@@ -97,14 +91,12 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     self.playCount.text = [NSString stringWithFormat:@"%zd播放",voiceInfo.playcount];
     
     if ([self.voiceInfo isVoicePlay]) {
-        self.playButton.selected = YES;
         [self updatePlayButtonContrains];
         self.playCount.hidden = YES;
         self.bottomView.hidden = NO;
         self.slider.hidden = NO;
     }else{
         self.leftConstraint.constant = -33.5;
-        self.playButton.selected = NO;
         self.playCount.hidden = NO;
         self.bottomView.hidden = YES;
         self.slider.hidden = YES;
@@ -132,8 +124,8 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 
 #pragma mark - action
-- (IBAction)play:(UIButton *)sender {
- 
+- (void)play:(UIButton *)sender {
+
     sender.selected = !sender.selected;
     [self updatePlayButtonContrains];
     self.playCount.hidden = YES;
@@ -144,7 +136,6 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
     if (!_onece) {
         [_streamer stop];
         self.track = [Track remoteTracks:self.voiceInfo.voiceuri];
-        [self _resetStreamer];
         _onece = YES;
         return;
     }
@@ -169,24 +160,5 @@ static void *kBufferingRatioKVOKey = &kBufferingRatioKVOKey;
 }
 - (void)aciontionTouch{
     _assistant = nil;
-}
-
-- (void)_cancelStreamer
-{
-    if (_streamer != nil) {
-        [_streamer pause];
-        _streamer = nil;
-    }
-}
-- (void)_resetStreamer
-{
-    [self _cancelStreamer];
-    
-    if (self.track) {
-        _streamer = [DOUAudioStreamer streamerWithAudioFile:_track];
-    }
-    [_streamer play];
-    [DOUAudioStreamer setHintWithAudioFile:_track];
-
 }
 @end

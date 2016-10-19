@@ -580,9 +580,9 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
     }];
 }
 - (void)pan:(UIPanGestureRecognizer *)pan{
-//    [self.forwardBtn setTitle:@"快进10秒" forState:UIControlStateNormal];
-//    self.forwardBtn.alpha = 1.;
-//    self.forwardBtn.transform = CGAffineTransformMakeScale(1, 1);
+    [self.forwardBtn setTitle:@"快进10秒" forState:UIControlStateNormal];
+    self.forwardBtn.alpha = 1.;
+    self.forwardBtn.transform = CGAffineTransformMakeScale(1, 1);
 //    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(2 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
 //        self.forwardBtn.alpha = 0;
 //    });
@@ -596,7 +596,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
 //                self.forwardBtn.alpha = 0.;
 //            }];
 //        }];
-//
+
 //    });
     
  }
@@ -761,7 +761,7 @@ static void *PlayViewStatusObservationContext = &PlayViewStatusObservationContex
                     doubleTap.numberOfTapsRequired = 2; // 双击
                     [singleTap requireGestureRecognizerToFail:doubleTap];//如果双击成立，则取消单击手势（双击的时候不回走单击事件）
                     [self addGestureRecognizer:doubleTap];
-//                    
+////                    
 //                    UIPanGestureRecognizer* pan = [[UIPanGestureRecognizer alloc] initWithTarget:self action:@selector(pan:)];
 //                    pan.delegate = self;
 //                    pan.minimumNumberOfTouches = 1;
