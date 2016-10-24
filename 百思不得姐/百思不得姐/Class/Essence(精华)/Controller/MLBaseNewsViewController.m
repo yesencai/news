@@ -58,7 +58,10 @@ static NSString *const ml_word_url = @"http://api.budejie.com/api/api_open.php";
 @property (nonatomic, strong) NSTimer *timer;
 /** 滑动空间 */
 @property (nonatomic, strong) UISlider *ml_slider;
+
 @end
+static UIWindow *_assistant;
+static NSString *const MLWordCellId = @"ml_dylan_topic";
 
 @implementation MLBaseNewsViewController
 
@@ -75,6 +78,36 @@ static NSString *const ml_word_url = @"http://api.budejie.com/api/api_open.php";
         _topics = [[NSMutableArray alloc] init];
     }
     return _topics;
+}
+
+/**
+ 点击播放音乐的悬浮窗口
+
+ @return Window
+ */
+- (UIWindow *)assistant
+{
+    if (!_assistant) {
+        CGFloat screenW = [UIScreen mainScreen].bounds.size.width;
+        CGFloat screenH = [UIScreen mainScreen].bounds.size.height;
+        _assistant = [[UIWindow alloc]init];
+        _assistant.backgroundColor = [UIColor colorWithWhite:0.5 alpha:0.2];
+        _assistant.frame = CGRectMake(screenW - 50, screenH * 0.5, 40, 40);
+        _assistant.layer.cornerRadius = 20;
+        _assistant.layer.masksToBounds = YES;
+        _assistant.windowLevel = UIWindowLevelAlert;
+        UIImageView* mainImageView= [[UIImageView alloc]init];
+        mainImageView.userInteractionEnabled = YES;
+        [mainImageView addGestureRecognizer:[[UITapGestureRecognizer alloc]initWithTarget:self action:@selector(aciontionTouch)]];
+        mainImageView.frame = _assistant.bounds;
+        mainImageView.animationImages = @[[UIImage imageNamed:@"showVoice-voice1"],[UIImage imageNamed:@"showVoice-voice2"],[UIImage imageNamed:@"showVoice-voice3"],[UIImage imageNamed:@"showVoice-voice4"],[UIImage imageNamed:@"showVoice-voice5"],[UIImage imageNamed:@"showVoice-voice6"],[UIImage imageNamed:@"showVoice-voice7"],[UIImage imageNamed:@"showVoice-voice8"]];
+        [mainImageView setAnimationDuration:1.5f];
+        [mainImageView setAnimationRepeatCount:0];
+        [mainImageView startAnimating];
+        [_assistant addSubview:mainImageView];
+        [self rotating:mainImageView];
+    }
+    return _assistant;
 }
 
 #pragma mark - controller生命周期
@@ -103,7 +136,6 @@ static NSString *const ml_word_url = @"http://api.budejie.com/api/api_open.php";
 
 }
 #pragma mark - 控件初始化
-static NSString *const MLWordCellId = @"ml_dylan_topic";
 /**
  控件初始化
  */
@@ -246,6 +278,7 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     }
     
 }
+#pragma mark - 视频处理
 
 /**
  添加到原来的View上
@@ -458,7 +491,84 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     }
 }
 
+/**
+ *  释放WMPlayer
+ */
+-(void)releaseWMPlayer{
+    
+    //堵塞主线程
+    [_wmPlayer pause];
+    
+    [_wmPlayer removeFromSuperview];
+    [_wmPlayer.playerLayer removeFromSuperlayer];
+    [_wmPlayer.player replaceCurrentItemWithPlayerItem:nil];
+    _wmPlayer.player = nil;
+    _wmPlayer.currentItem = nil;
+    //释放定时器，否侧不会调用WMPlayer中的dealloc方法
+    [_wmPlayer.autoDismissTimer invalidate];
+    _wmPlayer.autoDismissTimer = nil;
+    _wmPlayer.playOrPauseBtn = nil;
+    _wmPlayer.playerLayer = nil;
+    _wmPlayer = nil;
+}
+
+//点击全屏按钮代理方法
+-(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
+    if (fullScreenBtn.isSelected) {//全屏显示
+        _wmPlayer.isFullscreen = YES;
+        [self setNeedsStatusBarAppearanceUpdate];
+        [self toFullScreenWithInterfaceOrientation:UIInterfaceOrientationLandscapeRight];
+    }else{
+        if (_smallScreen) {
+            //放widow上,小屏显示
+            [self toSmallScreen];
+        }else{
+            [self toVedioView];
+        }
+    }
+    
+}
+
+///播放器事件
+//点击播放暂停按钮代理方法
+-(void)wmplayer:(WMPlayer *)wmplayer clickedPlayOrPauseButton:(UIButton *)playOrPauseBtn{
+}
+//点击关闭按钮代理方法
+-(void)wmplayer:(WMPlayer *)wmplayer clickedCloseButton:(UIButton *)closeBtn{
+    [self releaseWMPlayer];
+    
+}
+//单击WMPlayer的代理方法
+-(void)wmplayer:(WMPlayer *)wmplayer singleTaped:(UITapGestureRecognizer *)singleTap{
+    
+}
+//双击WMPlayer的代理方法
+-(void)wmplayer:(WMPlayer *)wmplayer doubleTaped:(UITapGestureRecognizer *)doubleTap{
+    
+}
+
+///播放状态
+//播放失败的代理方法
+-(void)wmplayerFailedPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
+    
+}
+//准备播放的代理方法
+-(void)wmplayerReadyToPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
+    [wmplayer player];
+}
+//播放完毕的代理方法
+-(void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
+    [wmplayer removeFromSuperview];
+}
+
 #pragma mark - <MLWordCellDelegate>
+
+/**
+ 点击视频播放
+
+ @param wordCell  wordCell
+ @param vedioView vedioView
+ */
 - (void)MLWordCell:(MLWordCell *)wordCell playVedio:(MLVedioView *)vedioView{
 
     NSIndexPath* indexPath = [self.tableView indexPathForCell:wordCell];
@@ -478,6 +588,13 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     [self.tableView reloadData];
 
 }
+
+/**
+ 点击音频播放
+
+ @param wordCell  wordCell
+ @param voiceView voiceView
+ */
 - (void)MLWordCell:(MLWordCell *)wordCell playVoice:(MLVoiceView *)voiceView{
     self.ml_slider = voiceView.slider;
     NSIndexPath* indexPath = [self.tableView indexPathForCell:wordCell];
@@ -493,6 +610,7 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
         self.word.voicePlay = NO;
         self.word.normalPlay = word.normalPlay;
     }
+    [self addAssistant:word.normalPlay ];
     word.normalPlay = !word.normalPlay;
     self.word = word;
     word.voicePlay = YES;
@@ -505,16 +623,30 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     [self.tableView reloadData];
 }
 
+/**
+ 滑动 slider
+
+ @param wordCell     wordCell
+ @param sliderChange sliderChange
+ */
 - (void)MLWordCell:(MLWordCell *)wordCell sliderValueChange:(UISlider *)sliderChange{
     [_streamer setCurrentTime:[_streamer duration] * [sliderChange value]];
-
 }
+
+/**
+ 点击slider
+
+ @param wordCell    wordCell
+ @param sliderTouch sliderTouch
+ @param pan         pan
+ */
 - (void)MLWordCell:(MLWordCell *)wordCell sliderTouch:(UISlider *)sliderTouch pan:(UITapGestureRecognizer *)pan{
     CGPoint touchLocation = [pan locationInView:sliderTouch];
     CGFloat value = (sliderTouch.maximumValue - sliderTouch.minimumValue) * (touchLocation.x/sliderTouch.frame.size.width);
     [sliderTouch setValue:value animated:YES];
     [_streamer setCurrentTime:[_streamer duration] * [sliderTouch value]];
 }
+#pragma mark - 音频处理
 - (void)_resetStreamer
 {
     [self _cancelStreamer];
@@ -540,76 +672,6 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     }
 }
 
-/**
- *  释放WMPlayer
- */
--(void)releaseWMPlayer{
-    
-    //堵塞主线程
-    [_wmPlayer pause];
-    
-    [_wmPlayer removeFromSuperview];
-    [_wmPlayer.playerLayer removeFromSuperlayer];
-    [_wmPlayer.player replaceCurrentItemWithPlayerItem:nil];
-    _wmPlayer.player = nil;
-    _wmPlayer.currentItem = nil;
-    //释放定时器，否侧不会调用WMPlayer中的dealloc方法
-    [_wmPlayer.autoDismissTimer invalidate];
-    _wmPlayer.autoDismissTimer = nil;
-    _wmPlayer.playOrPauseBtn = nil;
-    _wmPlayer.playerLayer = nil;
-    _wmPlayer = nil;
-}
-
-///播放器事件
-//点击播放暂停按钮代理方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedPlayOrPauseButton:(UIButton *)playOrPauseBtn{
-}
-//点击关闭按钮代理方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedCloseButton:(UIButton *)closeBtn{
-    [self releaseWMPlayer];
-    
-}
-//点击全屏按钮代理方法
--(void)wmplayer:(WMPlayer *)wmplayer clickedFullScreenButton:(UIButton *)fullScreenBtn{
-    if (fullScreenBtn.isSelected) {//全屏显示
-        _wmPlayer.isFullscreen = YES;
-        [self setNeedsStatusBarAppearanceUpdate];
-        [self toFullScreenWithInterfaceOrientation:UIInterfaceOrientationLandscapeRight];
-    }else{
-        if (_smallScreen) {
-            //放widow上,小屏显示
-            [self toSmallScreen];
-        }else{
-            [self toVedioView];
-        }
-    }
-
-}
-//单击WMPlayer的代理方法
--(void)wmplayer:(WMPlayer *)wmplayer singleTaped:(UITapGestureRecognizer *)singleTap{
-    
-}
-//双击WMPlayer的代理方法
--(void)wmplayer:(WMPlayer *)wmplayer doubleTaped:(UITapGestureRecognizer *)doubleTap{
-    
-}
-
-///播放状态
-//播放失败的代理方法
--(void)wmplayerFailedPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    
-}
-//准备播放的代理方法
--(void)wmplayerReadyToPlay:(WMPlayer *)wmplayer WMPlayerStatus:(WMPlayerState)state{
-    [wmplayer player];
-}
-//播放完毕的代理方法
--(void)wmplayerFinishedPlay:(WMPlayer *)wmplayer{
-    [wmplayer removeFromSuperview];
-}
-
-
 #pragma mark - 事件action
 /**
  刷新控件实现方法
@@ -624,6 +686,34 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
  */
 - (void)loadMore{
     [self loadMoreData];
+}
+#pragma mark - other
+/**
+ 添加助手按钮
+ */
+- (void)addAssistant:(BOOL)selected{
+    [self assistant].hidden = selected;
+}
+
+/**
+ 按钮旋转
+ */
+- (void)rotating:(UIImageView *)imageView{
+    CABasicAnimation *animation = [CABasicAnimation animationWithKeyPath:@"transform.rotation.z"];
+    // 2.设置基本动画属性
+    animation.fromValue = @(0);
+    animation.toValue = @(M_PI * 2);
+    animation.repeatCount = NSIntegerMax;
+    animation.duration = 10;
+    // 3.添加动画到图层上
+    [imageView.layer addAnimation:animation forKey:nil];
+}
+
+/**
+ 删除window悬浮按钮
+ */
+- (void)aciontionTouch{
+    _assistant = nil;
 }
 
 @end
