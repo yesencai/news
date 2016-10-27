@@ -82,21 +82,21 @@
     [self setExtraCellLineHidden:leftTableView];
     [self.view addSubview:self.leftTableView];
     
-    UITableView *rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(70, 0, self.view.frame.size.width-70, self.view.height-64) style:UITableViewStylePlain];
+    UITableView *rightTableView = [[UITableView alloc] initWithFrame:CGRectMake(70, 0, self.view.frame.size.width-70, self.view.frame.size.height) style:UITableViewStylePlain];
     rightTableView.backgroundColor = [UIColor clearColor];
     rightTableView.delegate = self;
     rightTableView.dataSource = self;
     rightTableView.rowHeight = 70;
-    self.rightTableView = rightTableView;
     [self setExtraCellLineHidden:rightTableView];
     [self.view addSubview:rightTableView];
+    self.rightTableView = rightTableView;
+
     
 }
 //创建刷新控件
 -(void)creatRfresh{
+     self.rightTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshMoreUsers)];
     self.rightTableView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreUsers)];
-    self.rightTableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(refreshMoreUsers)];
-
 }
 -(void)loadMoreUsers{
     
@@ -135,36 +135,34 @@
         reccmmed.reccmmendUserArray = [MLReccmmendUser mj_objectArrayWithKeyValuesArray:responseObject[@"list"]];
         reccmmed.total = [responseObject[@"total"] integerValue];
         reccmmed.currenPage = 1;
-        [self.rightTableView.mj_header endRefreshing];
         if (reccmmed.total ==reccmmed.reccmmendUserArray.count) {
             [self.rightTableView.mj_footer endRefreshingWithNoMoreData];
         }else{
             [self.rightTableView.mj_footer endRefreshing];
         }
+        [self.rightTableView.mj_header endRefreshing];
         [self.rightTableView reloadData];
     } failure:^(NSError *error) {
-        
+        [self.rightTableView.mj_header endRefreshing];
     }];
     
 }
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-    [self.rightTableView.mj_header endRefreshing];
+//    [self.rightTableView.mj_header endRefreshing];
     [self.rightTableView.mj_footer endRefreshing];
     if (tableView == self.leftTableView) {
         MLReccmmend *r = self.leftDataSource[[self.leftTableView indexPathForSelectedRow].row];
         if (r.reccmmendUserArray.count>0) {
-            [self.rightTableView reloadData];
             if (r.total ==r.reccmmendUserArray.count) {
                 [self.rightTableView.mj_footer endRefreshingWithNoMoreData];
             }else{
                 [self.rightTableView.mj_footer endRefreshing];
             }
-
-        }else{
             [self.rightTableView reloadData];
+        }else{
             self.rightTableView.mj_footer.hidden = YES;
             [self.rightTableView.mj_header beginRefreshing];
-
+            [self.rightTableView reloadData];
         }
     }
 }

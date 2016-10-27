@@ -19,5 +19,6 @@ CGFloat const MLButtomToolViewH = 44.;
 CGFloat const MLPictureMaxHeight = 1000;
 //图片帖子的固定高度
 CGFloat const MLPictureNormalHeight = 300;
+NSString *const ml_comment_url = @"http://api.budejie.com/api/api_open.php";
 
 

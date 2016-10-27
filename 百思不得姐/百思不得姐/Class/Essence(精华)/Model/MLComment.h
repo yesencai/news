@@ -11,6 +11,8 @@
 @interface MLComment : NSObject
 /** 文件时间长短 */
 @property (nonatomic, assign) NSInteger voicetime;
+/** 语音文件 */
+@property (nonatomic, copy) NSString *voiceuri;
 /** 评论的文字内容 */
 @property (nonatomic, copy) NSString *content;
 /** 被点赞的数量 */

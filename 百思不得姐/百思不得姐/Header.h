@@ -12,7 +12,9 @@
 #import "UIView+Extension.h"
 #import "MLConst.h"
 #define DDColor(r,g,b) [UIColor colorWithRed:(r)/255. green:(g)/255. blue:(b)/255. alpha:1.]
-
+#define MLNotification [NSNotificationCenter defaultCenter]
+#define MLScreenH  [UIScreen mainScreen].bounds.size.height
+#define MLScreenW  [UIScreen mainScreen].bounds.size.width
 #ifdef DEBUG
 #define DDLog(...) NSLog(__VA_ARGS__)
 #else

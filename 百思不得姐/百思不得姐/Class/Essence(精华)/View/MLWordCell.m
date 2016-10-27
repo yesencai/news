@@ -76,6 +76,10 @@
     return _vedioView;
 }
 
++ (instancetype)cell{
+    return [[NSBundle mainBundle]loadNibNamed:NSStringFromClass(self) owner:nil options:nil].lastObject;
+}
+
 #pragma mark - setter && getter方法重写
 
 - (void)setWord:(MLWord *)word{
@@ -134,8 +138,8 @@
 - (void)setFrame:(CGRect)frame{
     CGFloat margin = 10;
     frame.origin.x = margin;
-    frame.size.width -= 2 * frame.origin.x;
-    frame.size.height -= margin;
+    frame.size.width = MLScreenW - 2 * margin;
+    frame.size.height = self.word.cellHeight - 10;
     frame.origin.y += margin;
     super.frame = frame;
 }

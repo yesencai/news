@@ -55,4 +55,5 @@
 /** delegate */
 @property (nonatomic, weak) id <MLWordCellDelegate> delegate;
 
++ (instancetype)cell;
 @end

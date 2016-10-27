@@ -10,6 +10,7 @@
 #import "MLRemTag.h"
 #import <UIImageView+WebCache.h>
 #import "NSString+Size.h"
+#import <Masonry.h>
 @interface MLRemTagCell()
 
 /**
@@ -42,6 +43,8 @@
 }
 -(instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier{
     if (self  = [super initWithStyle:style reuseIdentifier:reuseIdentifier]) {
+        self.backgroundColor = [UIColor clearColor];
+        self.contentView.backgroundColor = [UIColor whiteColor];
         UIImageView *imageListImageView = [[UIImageView alloc]init];
         imageListImageView.x = 10;
         imageListImageView.y = 10;
@@ -72,17 +75,20 @@
         [fBtn setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         [fBtn setTitle:@"+ 订阅" forState:UIControlStateNormal];
         fBtn.titleLabel.font = [UIFont systemFontOfSize:12.];
-        fBtn.width = fBtn.currentBackgroundImage.size.width;
-        fBtn.height = fBtn.currentBackgroundImage.size.height;
-        self.focusBtn = fBtn;
+        CGFloat width = fBtn.currentBackgroundImage.size.width;
+        CGFloat height = fBtn.currentBackgroundImage.size.height;
         [self.contentView addSubview:fBtn];
-
+        [fBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.width.mas_equalTo(width);
+            make.height.mas_equalTo(height);
+            make.centerY.mas_equalTo(self.contentView);
+            make.right.mas_equalTo(self.contentView).offset(-20);
+        }];
     }
     return self;
 }
-+ (instancetype)cellWithTableView:(UITableView *)tableView
-{
 
++ (instancetype)cellWithTableView:(UITableView *)tableView{
     static NSString *ID = @"MLRemTagCell";
     MLRemTagCell *cell = [tableView dequeueReusableCellWithIdentifier:ID];
     if (!cell) {
@@ -109,13 +115,11 @@
     CGSize subSize = [NSString sizeWithText:self.subNumberLable.text font:self.subNumberLable.font];
     self.subNumberLable.width = subSize.width;
     self.subNumberLable.height = subSize.height;
-    
-    self.focusBtn.centerY = 35;
-    self.focusBtn.x = self.contentView.width - self.focusBtn.width - 20;
 }
+
 -(void)setFrame:(CGRect)frame{
     frame.origin.x = 10;
-    frame.size.width -=frame.origin.x * 2;
+    frame.size.width =MLScreenW - 20;
     frame.size.height -= 1;
     [super setFrame:frame];
 }

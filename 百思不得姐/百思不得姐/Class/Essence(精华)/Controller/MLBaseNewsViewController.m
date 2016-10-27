@@ -17,6 +17,7 @@
 #import <DOUAudioStreamer.h>
 #import "Track.h"
 #import "Track+Provider.h"
+#import "MLCommentsViewController.h"
 #import "MLVoiceView.h"
 
 #define MLScreenH [UIScreen mainScreen].bounds.size.height
@@ -58,7 +59,6 @@ static NSString *const ml_word_url = @"http://api.budejie.com/api/api_open.php";
 @property (nonatomic, strong) NSTimer *timer;
 /** 滑动空间 */
 @property (nonatomic, strong) UISlider *ml_slider;
-
 @end
 static UIWindow *_assistant;
 static NSString *const MLWordCellId = @"ml_dylan_topic";
@@ -126,6 +126,7 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
 }
 - (void)viewWillAppear:(BOOL)animated{
     [super viewWillAppear:animated];
+
     [[NSNotificationCenter defaultCenter] removeObserver:self name:UIDeviceOrientationDidChangeNotification object:nil];
     self.navigationController.navigationBarHidden = NO;
     //旋转屏幕通知
@@ -251,7 +252,9 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     MLWord *word = self.topics[indexPath.row];
     return word.cellHeight;
 }
-
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
+    [self pushCommentsViewController:indexPath];
+}
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView
 {
     if (scrollView!=self.tableView||_wmPlayer==nil) {
@@ -598,6 +601,7 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
 - (void)MLWordCell:(MLWordCell *)wordCell playVoice:(MLVoiceView *)voiceView{
     self.ml_slider = voiceView.slider;
     NSIndexPath* indexPath = [self.tableView indexPathForCell:wordCell];
+    self.ml_indexPath = indexPath;
     MLWord *word = self.topics[indexPath.row];
     if (!voiceView.playVoiceBtn.selected && !word.voicePlay) {
         [_streamer stop];
@@ -713,7 +717,11 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
  删除window悬浮按钮
  */
 - (void)aciontionTouch{
-    _assistant = nil;
+    [self pushCommentsViewController:self.ml_indexPath];
 }
-
+- (void)pushCommentsViewController:(NSIndexPath *)indexPath{
+    MLCommentsViewController *comments = [[MLCommentsViewController alloc]init];
+    comments.ml_word = self.topics[indexPath.row];
+    [self.navigationController pushViewController:comments animated:YES];
+}
 @end

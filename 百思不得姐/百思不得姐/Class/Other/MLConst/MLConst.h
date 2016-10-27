@@ -28,5 +28,5 @@ extern CGFloat const MLButtomToolViewH;
 extern CGFloat const MLPictureMaxHeight;
 //图片帖子的最大高度
 extern CGFloat const MLPictureNormalHeight;
-
+extern NSString *const ml_comment_url;
 

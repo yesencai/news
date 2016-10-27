@@ -10,6 +10,8 @@
 @class MLComment;
 @interface MLWord : NSObject
 
+/** id */
+@property (nonatomic, copy) NSString *ID;
 /** 名字 */
 @property (nonatomic, copy) NSString *name;
 /** 头像 */
