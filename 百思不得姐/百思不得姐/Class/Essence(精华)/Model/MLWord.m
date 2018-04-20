@@ -85,7 +85,6 @@
         if (self.type == MLTopicTypeVedio) {
             CGFloat vedioW = maxSize.width;
             CGFloat vedioH = vedioW * self.height / self.width;
-            _vedioFrame = CGRectMake(10, textRect.size.height + 80, vedioW, vedioH);
             _cellHeight += vedioH + 5;
         }
     }

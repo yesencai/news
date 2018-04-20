@@ -8,13 +8,17 @@
 
 /* Begin PBXBuildFile section */
 		99AE1E36926691731605A2F1 /* libPods-百思不得姐.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FCABF8CCC49F0412C882421D /* libPods-百思不得姐.a */; };
+		FC07B5E9204BE0A20099EA5F /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC07B5E0204BE0A10099EA5F /* WMPlayer.bundle */; };
+		FC07B5EA204BE0A20099EA5F /* FastForwardView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC07B5E5204BE0A10099EA5F /* FastForwardView.xib */; };
+		FC07B5EB204BE0A20099EA5F /* WMLightView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07B5E6204BE0A10099EA5F /* WMLightView.m */; };
+		FC07B5EC204BE0A20099EA5F /* FastForwardView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07B5E7204BE0A10099EA5F /* FastForwardView.m */; };
+		FC07B5ED204BE0A20099EA5F /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FC07B5E8204BE0A10099EA5F /* WMPlayer.m */; };
 		FC138ED01DBEF2F40088A0FD /* MLCommentsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC138ECE1DBEF2F40088A0FD /* MLCommentsViewController.m */; };
 		FC138ED11DBEF2F40088A0FD /* MLCommentsViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC138ECF1DBEF2F40088A0FD /* MLCommentsViewController.xib */; };
 		FC138EDB1DC081AF0088A0FD /* MLCommentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = FC138ED91DC081AF0088A0FD /* MLCommentCell.m */; };
 		FC25F89E1DA8979600ADA790 /* MLPictureView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC25F89D1DA8979600ADA790 /* MLPictureView.m */; };
 		FC25F8A21DA89B2300ADA790 /* MLPictureView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC25F8A11DA89B2300ADA790 /* MLPictureView.xib */; };
 		FC3E46231DA9DC1F000C8A68 /* MLProgressView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */; };
-		FC46964A1DB5CA180072005A /* WMPlayer.bundle in Resources */ = {isa = PBXBuildFile; fileRef = FC4696491DB5CA180072005A /* WMPlayer.bundle */; };
 		FC46964D1DB612D90072005A /* MLScrollView.m in Sources */ = {isa = PBXBuildFile; fileRef = FC46964C1DB612D90072005A /* MLScrollView.m */; };
 		FC6B6E521D9CF6F5001413EB /* MLBaseNewsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FC6B6E511D9CF6F5001413EB /* MLBaseNewsViewController.m */; };
 		FC74F97B1DAF2FDB0098CEA8 /* MLWord.m in Sources */ = {isa = PBXBuildFile; fileRef = FC74F97A1DAF2FDB0098CEA8 /* MLWord.m */; };
@@ -61,7 +65,6 @@
 		FC8E162D1DB0DD29004BD099 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FC8E162C1DB0DD29004BD099 /* MediaPlayer.framework */; };
 		FC8E16301DB0DD66004BD099 /* Track.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E162F1DB0DD66004BD099 /* Track.m */; };
 		FC8E16331DB0DD8C004BD099 /* Track+Provider.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E16321DB0DD8C004BD099 /* Track+Provider.m */; };
-		FC8E163D1DB48127004BD099 /* WMPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = FC8E163B1DB48127004BD099 /* WMPlayer.m */; };
 		FCA3037E1DAA14BA001F67CD /* MLLargerImageController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA3037C1DAA14BA001F67CD /* MLLargerImageController.m */; };
 		FCA3037F1DAA14BA001F67CD /* MLLargerImageController.xib in Resources */ = {isa = PBXBuildFile; fileRef = FCA3037D1DAA14BA001F67CD /* MLLargerImageController.xib */; };
 		FCA303931DAB2D66001F67CD /* MLSendPostViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = FCA303911DAB2D66001F67CD /* MLSendPostViewController.m */; };
@@ -114,6 +117,14 @@
 /* Begin PBXFileReference section */
 		0F25D9D3C13A6635D0F35C0F /* Pods-百思不得姐.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.debug.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.debug.xcconfig"; sourceTree = "<group>"; };
 		F6B4388AD515D9009C2DFCF4 /* Pods-百思不得姐.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-百思不得姐.release.xcconfig"; path = "Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐.release.xcconfig"; sourceTree = "<group>"; };
+		FC07B5E0204BE0A10099EA5F /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
+		FC07B5E1204BE0A10099EA5F /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
+		FC07B5E3204BE0A10099EA5F /* WMLightView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMLightView.h; sourceTree = "<group>"; };
+		FC07B5E4204BE0A10099EA5F /* FastForwardView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FastForwardView.h; sourceTree = "<group>"; };
+		FC07B5E5204BE0A10099EA5F /* FastForwardView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FastForwardView.xib; sourceTree = "<group>"; };
+		FC07B5E6204BE0A10099EA5F /* WMLightView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMLightView.m; sourceTree = "<group>"; };
+		FC07B5E7204BE0A10099EA5F /* FastForwardView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FastForwardView.m; sourceTree = "<group>"; };
+		FC07B5E8204BE0A10099EA5F /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		FC138ECD1DBEF2F40088A0FD /* MLCommentsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLCommentsViewController.h; sourceTree = "<group>"; };
 		FC138ECE1DBEF2F40088A0FD /* MLCommentsViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLCommentsViewController.m; sourceTree = "<group>"; };
 		FC138ECF1DBEF2F40088A0FD /* MLCommentsViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLCommentsViewController.xib; sourceTree = "<group>"; };
@@ -124,7 +135,6 @@
 		FC25F8A11DA89B2300ADA790 /* MLPictureView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLPictureView.xib; sourceTree = "<group>"; };
 		FC3E46211DA9DC1F000C8A68 /* MLProgressView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLProgressView.h; sourceTree = "<group>"; };
 		FC3E46221DA9DC1F000C8A68 /* MLProgressView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLProgressView.m; sourceTree = "<group>"; };
-		FC4696491DB5CA180072005A /* WMPlayer.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = WMPlayer.bundle; sourceTree = "<group>"; };
 		FC46964B1DB612D90072005A /* MLScrollView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLScrollView.h; sourceTree = "<group>"; };
 		FC46964C1DB612D90072005A /* MLScrollView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLScrollView.m; sourceTree = "<group>"; };
 		FC6B6E501D9CF6F5001413EB /* MLBaseNewsViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLBaseNewsViewController.h; sourceTree = "<group>"; };
@@ -137,10 +147,10 @@
 		FC8609441D8E40F8006157DD /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FC8609461D8E40F8006157DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC86094B1D8E40F8006157DD /* 百思不得姐Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐Tests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC86094F1D8E40F8006157DD /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____Tests.m"; sourceTree = "<group>"; };
+		FC86094F1D8E40F8006157DD /* _____Tests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _____Tests.m; sourceTree = "<group>"; };
 		FC8609511D8E40F8006157DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC8609561D8E40F8006157DD /* 百思不得姐UITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "百思不得姐UITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
-		FC86095A1D8E40F8006157DD /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "_____UITests.m"; sourceTree = "<group>"; };
+		FC86095A1D8E40F8006157DD /* _____UITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = _____UITests.m; sourceTree = "<group>"; };
 		FC86095C1D8E40F8006157DD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FC86096B1D8E658A006157DD /* MLAllTableViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLAllTableViewController.h; sourceTree = "<group>"; };
 		FC86096C1D8E658A006157DD /* MLAllTableViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLAllTableViewController.m; sourceTree = "<group>"; };
@@ -216,8 +226,6 @@
 		FC8E162F1DB0DD66004BD099 /* Track.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Track.m; sourceTree = "<group>"; };
 		FC8E16311DB0DD8C004BD099 /* Track+Provider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "Track+Provider.h"; sourceTree = "<group>"; };
 		FC8E16321DB0DD8C004BD099 /* Track+Provider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "Track+Provider.m"; sourceTree = "<group>"; };
-		FC8E163A1DB48127004BD099 /* WMPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WMPlayer.h; sourceTree = "<group>"; };
-		FC8E163B1DB48127004BD099 /* WMPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WMPlayer.m; sourceTree = "<group>"; };
 		FCA3037B1DAA14BA001F67CD /* MLLargerImageController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MLLargerImageController.h; sourceTree = "<group>"; };
 		FCA3037C1DAA14BA001F67CD /* MLLargerImageController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MLLargerImageController.m; sourceTree = "<group>"; };
 		FCA3037D1DAA14BA001F67CD /* MLLargerImageController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MLLargerImageController.xib; sourceTree = "<group>"; };
@@ -321,6 +329,29 @@
 				FCABF8CCC49F0412C882421D /* libPods-百思不得姐.a */,
 			);
 			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FC07B5DF204BE0A10099EA5F /* WMPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				FC07B5E0204BE0A10099EA5F /* WMPlayer.bundle */,
+				FC07B5E1204BE0A10099EA5F /* WMPlayer.h */,
+				FC07B5E2204BE0A10099EA5F /* View */,
+				FC07B5E8204BE0A10099EA5F /* WMPlayer.m */,
+			);
+			path = WMPlayer;
+			sourceTree = "<group>";
+		};
+		FC07B5E2204BE0A10099EA5F /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FC07B5E3204BE0A10099EA5F /* WMLightView.h */,
+				FC07B5E4204BE0A10099EA5F /* FastForwardView.h */,
+				FC07B5E5204BE0A10099EA5F /* FastForwardView.xib */,
+				FC07B5E6204BE0A10099EA5F /* WMLightView.m */,
+				FC07B5E7204BE0A10099EA5F /* FastForwardView.m */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FC8609291D8E40F8006157DD = {
@@ -732,16 +763,6 @@
 			path = Category;
 			sourceTree = "<group>";
 		};
-		FC8E16381DB48127004BD099 /* WMPlayer */ = {
-			isa = PBXGroup;
-			children = (
-				FC4696491DB5CA180072005A /* WMPlayer.bundle */,
-				FC8E163A1DB48127004BD099 /* WMPlayer.h */,
-				FC8E163B1DB48127004BD099 /* WMPlayer.m */,
-			);
-			path = WMPlayer;
-			sourceTree = "<group>";
-		};
 		FCA3038C1DAB2D4D001F67CD /* SendPost(发帖子) */ = {
 			isa = PBXGroup;
 			children = (
@@ -788,7 +809,7 @@
 		FCF2BD641D99167400C66F67 /* Lib */ = {
 			isa = PBXGroup;
 			children = (
-				FC8E16381DB48127004BD099 /* WMPlayer */,
+				FC07B5DF204BE0A10099EA5F /* WMPlayer */,
 				FCF2BD651D99167400C66F67 /* DBManager */,
 			);
 			path = Lib;
@@ -967,7 +988,7 @@
 				TargetAttributes = {
 					FC8609311D8E40F8006157DD = {
 						CreatedOnToolsVersion = 8.0;
-						DevelopmentTeam = HZEC6N5GYF;
+						DevelopmentTeam = Q6B26U4GWX;
 						ProvisioningStyle = Automatic;
 					};
 					FC86094A1D8E40F8006157DD = {
@@ -1011,10 +1032,10 @@
 			files = (
 				FC25F8A21DA89B2300ADA790 /* MLPictureView.xib in Resources */,
 				FC138ED11DBEF2F40088A0FD /* MLCommentsViewController.xib in Resources */,
+				FC07B5EA204BE0A20099EA5F /* FastForwardView.xib in Resources */,
 				FCA3037F1DAA14BA001F67CD /* MLLargerImageController.xib in Resources */,
 				FCC56D641DAE164400758EB2 /* MLVoiceView.xib in Resources */,
 				FC8609D01D8E658A006157DD /* MLFriendTrendsViewController.xib in Resources */,
-				FC46964A1DB5CA180072005A /* WMPlayer.bundle in Resources */,
 				FC8609451D8E40F8006157DD /* LaunchScreen.storyboard in Resources */,
 				FCA303941DAB2D66001F67CD /* MLSendPostViewController.xib in Resources */,
 				FCF2BDA21D9922A700C66F67 /* MLWordCell.xib in Resources */,
@@ -1023,6 +1044,7 @@
 				FC8609421D8E40F8006157DD /* Assets.xcassets in Resources */,
 				FC8609E51D8E658A006157DD /* DFDViewController.xib in Resources */,
 				FC8E16241DB069DC004BD099 /* MLLargerView.xib in Resources */,
+				FC07B5E9204BE0A20099EA5F /* WMPlayer.bundle in Resources */,
 				FC8609EF1D8E713A006157DD /* MLLoginRegistViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1050,13 +1072,16 @@
 			files = (
 			);
 			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
 			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-百思不得姐-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		A4B4B8B3E66580A300D360C4 /* [CP] Embed Pods Frameworks */ = {
@@ -1080,9 +1105,14 @@
 			files = (
 			);
 			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-百思不得姐/Pods-百思不得姐-resources.sh",
+				"${PODS_ROOT}/MJRefresh/MJRefresh/MJRefresh.bundle",
+				"${PODS_ROOT}/SVProgressHUD-FE/SVProgressHUD/SVProgressHUD.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/MJRefresh.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/SVProgressHUD.bundle",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -1133,7 +1163,6 @@
 				FC8609D61D8E658A006157DD /* MLPlaceHolderTextField.m in Sources */,
 				FC8609CD1D8E658A006157DD /* MLRemTag.m in Sources */,
 				FC46964D1DB612D90072005A /* MLScrollView.m in Sources */,
-				FC8E163D1DB48127004BD099 /* WMPlayer.m in Sources */,
 				FCF2BD911D99167400C66F67 /* FMDatabasePool.m in Sources */,
 				FCF2BDA11D9922A700C66F67 /* MLWordCell.m in Sources */,
 				FC8609CC1D8E658A006157DD /* MLWordTableViewController.m in Sources */,
@@ -1154,10 +1183,13 @@
 				FCF2BD981D99167400C66F67 /* NSObject+LKModel.m in Sources */,
 				FC8609CF1D8E658A006157DD /* MLFriendTrendsViewController.m in Sources */,
 				FC8609E21D8E658A006157DD /* MLtabBar.m in Sources */,
+				FC07B5EB204BE0A20099EA5F /* WMLightView.m in Sources */,
+				FC07B5ED204BE0A20099EA5F /* WMPlayer.m in Sources */,
 				FCF2BD951D99167400C66F67 /* LKDBHelper.m in Sources */,
 				FC8609DC1D8E658A006157DD /* UIView+Extension.m in Sources */,
 				FCF2BD8D1D99167400C66F67 /* DAOManager.m in Sources */,
 				FC8609371D8E40F8006157DD /* main.m in Sources */,
+				FC07B5EC204BE0A20099EA5F /* FastForwardView.m in Sources */,
 				FC8609CA1D8E658A006157DD /* MLVedioTableViewController.m in Sources */,
 				FC8609EE1D8E713A006157DD /* MLLoginRegistViewController.m in Sources */,
 				FC8E16331DB0DD8C004BD099 /* Track+Provider.m in Sources */,
@@ -1302,7 +1334,7 @@
 			baseConfigurationReference = 0F25D9D3C13A6635D0F35C0F /* Pods-百思不得姐.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HZEC6N5GYF;
+				DEVELOPMENT_TEAM = Q6B26U4GWX;
 				GCC_PREFIX_HEADER = "百思不得姐/Header.h";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
@@ -1317,7 +1349,7 @@
 			baseConfigurationReference = F6B4388AD515D9009C2DFCF4 /* Pods-百思不得姐.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				DEVELOPMENT_TEAM = HZEC6N5GYF;
+				DEVELOPMENT_TEAM = Q6B26U4GWX;
 				GCC_PREFIX_HEADER = "百思不得姐/Header.h";
 				INFOPLIST_FILE = "百思不得姐/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 9.0;

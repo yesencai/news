@@ -77,7 +77,7 @@
         self.imageView.centerY = screenH * 0.5;
     }
   
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.big_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:self.topic.big_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
         self.progressView.hidden = NO;
         CGFloat progress = 1.0 * receivedSize / expectedSize;
         if (progress < 0 || progress ==-0) {

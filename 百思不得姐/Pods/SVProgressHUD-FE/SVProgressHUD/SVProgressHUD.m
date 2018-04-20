@@ -1293,4 +1293,26 @@ static const CGFloat SVProgressHUDUndefinedProgress = -1;
         }
     });
 }
+
++ (SVProgressHUD *)popProgressHUD
+{
+    static dispatch_once_t onceToken;
+    static SVProgressHUD *sharedObject = nil;
+    dispatch_once(&onceToken, ^{
+        if (sharedObject == nil) {
+            sharedObject = [[self alloc] initWithFrame:[[[UIApplication sharedApplication] delegate] window].bounds];
+        }
+    });
+    return sharedObject;
+}
+
++ (void)showAboveWithImage:(UIImage *)image status:(NSString *)status duration:(NSTimeInterval)duration complete:(dispatch_block_t)complete;
+{
+    [[self popProgressHUD] showImage:image status:status duration:duration];
+    dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(duration * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+        if (complete) {
+            complete();
+        }
+    });
+}
 @end

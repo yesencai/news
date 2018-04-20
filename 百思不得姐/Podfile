@@ -2,13 +2,12 @@
 target '百思不得姐' do
 pod 'AFNetworking', '~> 2.5.3'
 pod 'SVProgressHUD-FE', '~> 2.0'
-pod 'MJExtension', '~> 3.0.10'
+pod 'MJExtension', '~> 3.0.13'
 pod 'MJRefresh', '~> 3.1.0'
-pod 'SDWebImage', '~> 3.7.5'
-pod 'Masonry', '~> 0.6.4'
+pod 'SDWebImage', '~> 4.3.2'
 pod 'DACircularProgress'
 pod 'pop', '~> 1.0.9'
 pod 'DOUAudioStreamer', '~> 0.2.15'
-pod 'Masonry', '~> 0.6.4'
+pod 'Masonry', '~> 1.1.0'
 
 end

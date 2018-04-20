@@ -19,7 +19,7 @@
 #import "Track+Provider.h"
 #import "MLCommentsViewController.h"
 #import "MLVoiceView.h"
-
+#import "Masonry.h"
 #define MLScreenH [UIScreen mainScreen].bounds.size.height
 #define MLScreenW [UIScreen mainScreen].bounds.size.width
 #define MLNavigationH 64
@@ -149,6 +149,7 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
     
     //注册cell
     [self.tableView registerNib:[UINib nibWithNibName:NSStringFromClass([MLWordCell class]) bundle:nil] forCellReuseIdentifier:MLWordCellId];
+    [self.tableView reloadData];
 }
 /**
  刷新控件初始化
@@ -251,6 +252,9 @@ static NSString *const MLWordCellId = @"ml_dylan_topic";
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
     MLWord *word = self.topics[indexPath.row];
     return word.cellHeight;
+}
+- (CGFloat)tableView:(UITableView *)tableView estimatedHeightForRowAtIndexPath:(NSIndexPath *)indexPath{
+    return 200;
 }
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
     [self pushCommentsViewController:indexPath];

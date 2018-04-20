@@ -76,14 +76,19 @@ static UIWindow *_largerWindow;
         self.imageView.centerY = screenH * 0.5;
     }
 
-    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.big_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize) {
-        self.progressView.hidden = NO;
-        CGFloat progress = 1.0 * receivedSize / expectedSize;
-        if (progress < 0 || progress ==-0) {
-            progress = 0;
-        }
-        [self.progressView setProgress:progress animated:NO];
-        self.progressView.progressLabel.text = [NSString stringWithFormat:@"%0.f%%",progress * 100];
+    [self.imageView sd_setImageWithURL:[NSURL URLWithString:topic.big_image] placeholderImage:nil options:0 progress:^(NSInteger receivedSize, NSInteger expectedSize, NSURL * _Nullable targetURL) {
+        dispatch_async(dispatch_get_main_queue(),^{
+
+            self.progressView.hidden = NO;
+            CGFloat progress = 1.0 * receivedSize / expectedSize;
+            if (progress < 0 || progress ==-0) {
+                progress = 0;
+            }
+            [self.progressView setProgress:progress animated:NO];
+            self.progressView.progressLabel.text = [NSString stringWithFormat:@"%0.f%%",progress * 100];
+            
+        });
+
     } completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
         self.progressView.hidden = YES;
         if (error) {

@@ -101,22 +101,29 @@
     [self.shareButton setTitle:[self calculateTitleCount:word.repost] forState:UIControlStateNormal];
     //评论数量
     [self.commentButton setTitle:[self calculateTitleCount:word.comment] forState:UIControlStateNormal];
-
+    CGSize maxSize = CGSizeMake([UIScreen mainScreen].bounds.size.width - 4 * MLHeadImageSpacing, MAXFLOAT);
+    CGRect textRect = [word.text boundingRectWithSize:maxSize options:NSStringDrawingUsesLineFragmentOrigin attributes:@{NSFontAttributeName:[UIFont systemFontOfSize:14.]} context:nil];
+    CGFloat vedioW = maxSize.width;
+    CGFloat vedioH = vedioW * word.height / word.width;
     if (word.type == MLTopicTypePicture) {
         self.pictureView.pictureInfo = word;
-        self.pictureView.frame = word.picureFrame;
+        vedioH = vedioH > MLPictureMaxHeight ? MLPictureNormalHeight : vedioH;
+        CGRect frame= CGRectMake(10, textRect.size.height + 80, vedioW, vedioH);
+        self.pictureView.frame = frame;
         self.pictureView.hidden = NO;
         self.voiceView.hidden = YES;
         self.vedioView.hidden = YES;
     }else if (word.type == MLTopicTypeVioce) {
+        CGRect frame = CGRectMake(10, textRect.size.height + 80, vedioW, vedioH);
         self.voiceView.voiceInfo = word;
-        self.voiceView.frame = word.voiceFrame;
+        self.voiceView.frame = frame;
         self.pictureView.hidden = YES;
         self.voiceView.hidden = NO;
         self.vedioView.hidden = YES;
     }else if (word.type == MLTopicTypeVedio) {
+        CGRect frame = CGRectMake(10, textRect.size.height + 80, vedioW, vedioH);
         self.vedioView.vedioInfo = word;
-        self.vedioView.frame = word.vedioFrame;
+        self.vedioView.frame = frame;
         self.pictureView.hidden = YES;
         self.voiceView.hidden = YES;
         self.vedioView.hidden = NO;
@@ -125,6 +132,7 @@
         self.voiceView.hidden = YES;
         self.vedioView.hidden = YES;
     }
+
 }
 
 /**

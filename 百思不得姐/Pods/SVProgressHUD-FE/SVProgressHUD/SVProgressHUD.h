@@ -123,4 +123,6 @@ typedef NS_ENUM(NSUInteger, SVProgressHUDAnimationType) {
 @interface SVProgressHUD (FE)
 // show a image + status , after 'duration', operate the 'complete' block
 + (void)showImage:(UIImage *)image status:(NSString *)status duration:(NSTimeInterval)duration complete:(dispatch_block_t)complete;
+
++ (void)showAboveWithImage:(UIImage *)image status:(NSString *)status duration:(NSTimeInterval)duration complete:(dispatch_block_t)complete;
 @end
